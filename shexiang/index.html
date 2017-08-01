@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+
+	<title>摄享</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="index.css">
+
+	<script>
+		var styleEle = document.createElement("style");
+		document.documentElement.firstElementChild.appendChild(styleEle);
+
+		(function () {
+			var px = document.documentElement.clientWidth / 10;
+			styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
+
+		})()
+	</script>
+
+
+</head>
+<body ontouchstart="" >
+	<div class="container">
+		<div class="header">
+			<span>摄享</span>
+			<a href="#" id="photoer">
+				<img src="src/img/photographer.png" alt="photographer">
+			</a>
+		</div>
+
+		<div class="btn-container">
+			<div class="btn-item" id="btn-item1">最新作品</div>
+			<div class="btn-item" id="btn-item2">我关注的</div>
+		</div>
+
+		<article class="photo-share" id="">
+			<header class="user">
+				<a href="http://www.baidu.com" >
+					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
+					<span>14级摄影系</span>
+					<span class="dividing-line">|</span>
+					<span>Cristiano</span>
+				</a>
+			</header>
+
+			<div class="photo">
+				<img src="src/img/cr7.jpg" alt="content">
+			</div>
+
+			<div class="operate">
+				<div class="un-love"></div>	
+				<div class="comment"></div>
+			</div>
+
+			<div class="love-numbers">
+				<span>1</span>
+				<span>次赞</span>
+			</div>
+
+			<div class="communication">
+			</div>
+		</article>
+
+		<article class="photo-share">
+			<header class="user">
+				<a href="http://www.baidu.com" >
+					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
+					<span>14级摄影系</span>
+					<span class="dividing-line">|</span>
+					<span>Cristiano</span>
+				</a>
+			</header>
+
+			<div class="photo">
+				<img src="src/img/cr7.jpg" alt="content">
+			</div>
+
+			<div class="operate">
+				<div class="un-love"></div>	
+				<div class="comment"></div>
+			</div>
+
+			<div class="love-numbers">
+				<span>1</span>
+				<span>次赞</span>
+			</div>
+
+			<div class="communication">
+				
+			</div>
+
+		</article>
+	</div>
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+.header {
+	font-size: 0.6rem;
+	text-align: center;
+	padding: 0.35rem 0;
+	border-bottom: 1px solid #efefef;
+	font-family: -apple-system-font,Helvetica Neue,sans-serif;
+}
+
+#photoer{
+	position: absolute;
+	right: 0.4rem;
+	top: 0.28rem;
+}
+
+.btn-container {
+	display: flex;
+	font-size: 0.4rem;
+	justify-content: center;
+	margin: 0.4rem 0;
+}
+
+.btn-item {
+	margin: 0 0.4rem;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 25px;
+	padding: 3px;
+}
+
+.item-on {
+	background: rgba(148,148,148,0.3);
+}
+
+.photo-share {
+	margin-top: 0.5rem;
+	border-bottom: 1px solid black;
+}
+
+.user{
+	padding: 0.4rem 0 0.4rem 0.4rem;
+	font-size: 0.4rem;
+}
+
+
+.avatar {
+	border-radius: 50%;
+	height: 0.8rem;
+	width: 0.8rem;
+	vertical-align: middle;
+	margin-right: 0.25rem;
+}
+
+
+.dividing-line {
+	color: #e1e1e1;
+}
+
+.photo img {
+	width: 100%;
+	height: auto;
+}
+
+.operate {
+	padding-left: 0.4rem;
+}
+
+.un-love {
+	display: inline-block;
+	background: url("src/img/love-white.png");
+	width: 32px;
+	height: 32px;
+}
+
+.do-love {
+	display: inline-block;
+	background: url("src/img/love-red.png");
+	width: 32px;
+	height: 32px;
+}
+
+.comment {
+	display: inline-block;
+	background: url("src/img/comment.png");
+	width: 32px;
+	height: 32px;
+}
+
+.love-numbers {
+	padding-left: 0.4rem;
+	font-size: 0.35rem;
+	font-weight: 600;
+}
+
+.communication {
+	width: 100%;
+	height: 200px;
+}
