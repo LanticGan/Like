@@ -1,0 +1,51 @@
+.header {
+	font-size: 0.6rem;
+	text-align: center;
+	padding: 0.35rem 0;
+	border-bottom: 1px solid #efefef;
+}
+
+.user-info {
+	margin-bottom: 0.8rem;
+}
+
+.user-avatar {
+/* 	height: 100px;
+width: 100px;
+border-radius: 50%;
+overflow: hidden; */
+	margin: 0.8rem auto;
+	display: flex;
+	justify-content: center;
+}
+
+#ava {
+
+	width: 2.6rem;
+	height: 2.6rem;
+}
+
+.user-name {
+	font-size: 0.5rem;
+	text-align: center;
+}
+
+.user-data {
+	margin-top: 0.4rem;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 0.4rem;
+}
+
+.love {
+	margin: 0.4rem;
+}
+
+.comment {
+	margin: 0.4rem;
+}
+
+.follow {
+	margin: 0.4rem;
+}
