@@ -42,10 +42,18 @@ overflow: hidden; */
 	margin: 0.4rem;
 }
 
-.comment {
+.commentIcon {
 	margin: 0.4rem;
 }
 
 .follow {
 	margin: 0.4rem;
+}
+
+.comment {
+	margin: 0.4rem
+}
+
+.follow {
+	margin: 0.4rem
 }

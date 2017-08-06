@@ -23,7 +23,7 @@
 	margin: 0 0.4rem;
 	border: 1px solid rgba(0,0,0,0.3);
 	border-radius: 25px;
-	padding: 3px;
+	padding: 4px;
 }
 
 .item-on {
@@ -31,8 +31,10 @@
 }
 
 .photo-share {
-	margin-top: 0.5rem;
-	border-bottom: 1px solid black;
+	margin-top: 0.2rem;
+	padding-bottom: 0.2rem;
+
+	border-bottom: 1px solid #e1e1e1;
 }
 
 .user{
@@ -54,13 +56,15 @@
 	color: #e1e1e1;
 }
 
-.photo img {
+.photo img{
 	width: 100%;
 	height: auto;
 }
 
 .operate {
 	padding-left: 0.4rem;
+	height: 1.3rem;
+	border-bottom: 1px solid #efefef;
 }
 
 .un-love {
@@ -77,7 +81,7 @@
 	height: 32px;
 }
 
-.comment {
+.comment-icon {
 	display: inline-block;
 	background: url("src/img/comment.png");
 	width: 32px;
@@ -86,11 +90,44 @@
 
 .love-numbers {
 	padding-left: 0.4rem;
+	margin-bottom: 0.2rem;
 	font-size: 0.35rem;
 	font-weight: 600;
 }
 
 .communication {
+	font-size: 0.4rem;
+	padding-left: 0.4rem;
+}
+
+.author-comment {
+	font-size: 0.4rem;
+	padding-left: 0.4rem;
+}
+
+.author {
+	font-weight: 600;	
+}
+
+/* .comment-form {
+	padding: 0 0.2rem;
+} */
+
+.comment-form {
+	padding-left: 0.35rem;
+}
+
+form {
+	position: relative;
+	width: 9rem;
+}
+
+input {
+	position: relative;
+	bottom: 0.3rem;
+	height: 0.25rem;
 	width: 100%;
-	height: 200px;
+	font-size: 0.4rem;
+	padding: 0.2rem 0 0.2rem 0.2rem;
+
 }
