@@ -38,6 +38,12 @@ $(document).ready(function(){
 		}	
 	}	
 
+	var commentList = document.getElementsByClassName("comment-icon");
+	for (i = 0; i < commentList.length; ++i) {
+		commentList[i].onclick = function () {
+			console.log(this.parentNode.parentNode.lastElementChild.style.display = 'block');
+		}	
+	}
 
 
 });
