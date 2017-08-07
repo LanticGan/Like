@@ -184,7 +184,7 @@ input {
 .bottom-menu-item img {
 	position: relative;
 	top:50%;
-	transform: translateY(-50%);
+	/* transform: translateY(-50%); */
 	display: block;
 	margin: 0 auto;
 	height: 32px;
