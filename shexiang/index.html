@@ -10,16 +10,16 @@
 	<link rel="stylesheet" href="../css/weui.min.css">
 	<link rel="stylesheet" href="index.css">
 
-	<script>
-		var styleEle = document.createElement("style");
-		document.documentElement.firstElementChild.appendChild(styleEle);
+ <script>
+	var styleEle = document.createElement("style");
+	document.documentElement.firstElementChild.appendChild(styleEle);
 
-		(function () {
-			var px = document.documentElement.clientWidth / 10;
-			styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
+	(function () {
+		var px = document.documentElement.clientWidth / 10;
+		styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
 
-		})()
-	</script>
+	})()
+</script> 
 
 </head>
 
@@ -28,16 +28,18 @@
 		<div class="header">
 			<span>摄享</span>
 			<a href="#" id="photoer">
-				<img src="src/img/photographer.png" alt="photographer">
+				<label for="image"><img src="src/icon/photo.png" alt="photographer"></label>
+				<input type="file" id="image" name="" style="display: none">
 			</a>
+
 		</div>
 
 		<div class="btn-container">
-			<div class="btn-item" id="btn-item1">最新作品</div>
+			<div class="btn-item item-on" id="btn-item1">最新作品</div>
 			<div class="btn-item" id="btn-item2">我关注的</div>
 		</div>
 
-		<article class="photo-share" id="">
+		<article class="photo-share" id="ta">
 			<header class="user">
 				<a href="http://www.baidu.com" >
 					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
@@ -57,8 +59,12 @@
 			</div>
 
 			<div class="operate">
-				<div class="un-love"></div>	
-				<div class="comment-icon"></div>
+				<div class="love-item">
+					<img src="src/icon/love-white.png" alt="love-item" class="love-icon">
+				</div>
+				<div class="comment-icon">
+					<img src="src/icon/comment.png" alt="comment-icon">
+				</div>
 			</div>
 
 			<div class="love-numbers">
@@ -106,55 +112,12 @@
 			</div>
 
 			<div class="operate">
-				<div class="un-love"></div>	
-				<div class="comment-icon"></div>
-			</div>
-
-			<div class="love-numbers">
-				<span>1</span>
-				<span>次赞</span>
-			</div>
-
-			<div class="communication">
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
+				<div class="love-item">
+					<img src="src/icon/love-white.png" alt="love-item" class="love-icon">
 				</div>
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
-				</div>				
-			</div>
-
-			<div class="comment-form">
-				<form action="">
-					<input type="text" placeholder="评论">
-				</form>
-			</div> 
-		</article>		
-
-		<article class="photo-share" id="">
-			<header class="user">
-				<a href="http://www.baidu.com" >
-					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
-					<span>14级摄影系</span>
-					<span class="dividing-line">|</span>
-					<span>Cristiano</span>
-				</a>
-			</header>
-
-			<div class="vertical-photo">
-				<img src="src/img/dog1.jpg" alt="content">
-			</div>
-
-			<div class="author-comment">
-					<span class="author">Cris:</span>
-					<span>This is my frist day</span>
-			</div>
-
-			<div class="operate">
-				<div class="un-love"></div>	
-				<div class="comment-icon"></div>
+				<div class="comment-icon">
+					<img src="src/icon/comment.png" alt="comment-icon">
+				</div>
 			</div>
 
 			<div class="love-numbers">
@@ -179,27 +142,97 @@
 				</form>
 			</div> 
 
-		</article>				
+		</article>
+
+		<article class="photo-share" id="">
+			<header class="user">
+				<a href="http://www.baidu.com" >
+					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
+					<span>14级摄影系</span>
+					<span class="dividing-line">|</span>
+					<span>Cristiano</span>
+				</a>
+			</header>
+
+			<div class="vertical-photo">
+				<img src="src/img/dog1.jpg" alt="content">
+			</div>
+
+			<div class="author-comment">
+					<span class="author">Cris:</span>
+					<span>This is my frist day</span>
+			</div>
+
+			<div class="operate">
+				<div class="love-item">
+					<img src="src/icon/love-white.png" alt="love-item" class="love-icon">
+				</div>
+				<div class="comment-icon">
+					<img src="src/icon/comment.png" alt="comment-icon">
+				</div>
+			</div>
+
+			<div class="love-numbers">
+				<span>1</span>
+				<span>次赞</span>
+			</div>
+
+			<div class="communication">
+				<div class="user-comment">
+					<span class="author">lantic:</span>
+					<span>testtesdda</span>
+				</div>
+				<div class="user-comment">
+					<span class="author">lantic:</span>
+					<span>testtesdda</span>
+				</div>				
+			</div>
+ 
+			<div class="comment-form">
+				<form action="">
+					<input type="text" placeholder="评论">
+				</form>
+			</div> 
+
+		</article>
+	</div>
 
 
+	<div id="photo-submit" style="display: none">
+		<header>
+			<a href="index.html" id="back">
+				<img src="src/icon/back.png" alt="">
+			</a>
+			<span>新照片</span>
+			<a href="#" id="share-text">
+				<p>分享</p>
+			</a>
+		</header>
+		<section>
+			<textarea name="" id="" cols="20" rows="4" placeholder="照片说明..."></textarea>
+			<div class="preview-photo-container">
+				<img id="preview-photo" src="" alt="">
+			</div>
+		</section>
+	</div>
 
-	
-	<footer class="bottom-menu">	
-		<a href="javascript:;" class="bottom-menu-item">
+	<nav class="bottom-menu">	
+		<a href="#" class="bottom-menu-item" id="home-item">
+			<img src="src/icon/home-on.png" alt="">
+		</a>
+
+		<a href="photographer/photographer.html" class="bottom-menu-item" id="photographer-item">
+			<img src="src/icon/photographer.png" alt="">
+		</a>
+
+		<a href="person/person.html" class="bottom-menu-item" id="person-item">
 			<img src="src/icon/person.png" alt="">
 		</a>
 
-		<a href="javascript:;" class="bottom-menu-item">
-			<img src="src/icon/photo.png" alt="">
-		</a>
-
 		<a href="../index.html" class="bottom-menu-item">
-			<img src="src/icon/home.png" alt="">
+			<img src="src/icon/function.png" alt="">
 		</a>
-	</footer>
-
-	</div>
-
+	</nav>
 
 
 <script src="../js/jquery-3.2.1.min.js"></script>

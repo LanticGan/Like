@@ -7,13 +7,16 @@
 	text-align: center;
 	padding: 0.35rem 0;
 	border-bottom: 1px solid #efefef;
-	font-family: -apple-system-font,Helvetica Neue,sans-serif;
 }
 
 #photoer{
 	position: absolute;
 	right: 0.4rem;
-	top: 0.28rem;
+	top: 0.48rem;
+}
+
+#photoer img{
+	height: 0.7rem;
 }
 
 .btn-container {
@@ -71,30 +74,33 @@
 	border-bottom: 1px solid #efefef;
 }
 
-.un-love {
+.love-item {
 	display: inline-block;
-	background: url("src/img/love-white.png");
-	width: 32px;
-	height: 32px;
+	width: 28px;
+	height: 28px;
 }
 
-.do-love {
+.comment-icon{
 	display: inline-block;
-	background: url("src/img/love-red.png");
-	width: 32px;
-	height: 32px;
+	width: 28px;
+	height: 28px;
 }
 
-.comment-icon {
-	display: inline-block;
-	background: url("src/img/comment.png");
-	width: 32px;
-	height: 32px;
+.operate {
+	position: relative;
+	bottom: 0.2rem;
+}
+
+.operate img {
+	display: block;
+	width: 100%;
+	height: 100%;
+
 }
 
 .love-numbers {
 	padding-left: 0.4rem;
-	margin-bottom: 0.2rem;
+	margin: 0.1rem 0;
 	font-size: 0.35rem;
 	font-weight: 600;
 }
@@ -164,6 +170,60 @@ input {
     padding-top: 100%;
 }
 
+#photo-submit header {
+	position: relative;
+	font-size: 0.6rem;
+	text-align: center;
+	padding: 0.35rem 0;
+	border-bottom: 1px solid #efefef;
+}
+
+#share-text {
+	font-size: 0.5rem;
+	color: blue;
+	position: absolute;
+	right: 0.4rem;
+	top: 0.48rem;
+}
+
+
+#photo-submit section {
+	align-items: center;
+	display: flex;
+	position: relative;
+	padding: 0.5rem;
+}
+
+#photo-submit textarea{
+	outline: none;
+	font-size: 0.5rem;
+	padding: 0.5rem;		
+	border: 0;
+}
+
+
+.preview-photo-container {
+	justify-content: center;
+	margin-left: 0.4rem;
+	width: 2.2rem;
+	height: 2.2rem;
+}
+
+#preview-photo {
+	height: 100%;
+	width: 100%;
+}
+
+#back {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+}
+
+#back img{
+	height: 0.7rem;
+}
+
 .bottom-menu {
 	width: 100%;
 	height: 1rem;
@@ -172,21 +232,19 @@ input {
 	bottom: 0;
 	border-top: 1px solid #C0BFC4;
 	background: #F7F7FA;
+	line-height: 1rem;
+	padding-bottom: 0.2rem;
 }
-
 .bottom-menu-item {
 	position: relative;
 	display: block;
 	flex:1;
+	text-align: center;
 
 }
 
 .bottom-menu-item img {
-	position: relative;
-	top:50%;
-	/* transform: translateY(-50%); */
-	display: block;
-	margin: 0 auto;
-	height: 32px;
-	width: 32px;
+	vertical-align: middle;
+	height: 0.7rem;
 }
+

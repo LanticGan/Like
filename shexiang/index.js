@@ -21,19 +21,14 @@ $(document).ready(function(){
 		}
 	}, false);
 
-
-	var loveBtnList = document.getElementsByClassName("un-love");
+	var loveBtnList = document.getElementsByClassName("love-icon");
 	for (var i = 0; i < loveBtnList.length; ++i) {
 		loveBtnList[i].onclick = function () {
-			if (this.classList.contains("un-love")) {
-				this.classList.remove("un-love");
-				this.classList.add("do-love");
-				// Sent data to server ...
 
+			if (this.src.match(/white/)) {
+				this.src = "src/icon/love-red.png";
 			} else {
-				this.classList.remove("do-love");
-				this.classList.add("un-love");
-				// do sth ... 
+				this.src = "src/icon/love-white.png";
 			}
 		}	
 	}	
@@ -41,10 +36,21 @@ $(document).ready(function(){
 	var commentList = document.getElementsByClassName("comment-icon");
 	for (i = 0; i < commentList.length; ++i) {
 		commentList[i].onclick = function () {
-			console.log(this.parentNode.parentNode.lastElementChild.style.display = 'block');
+			this.parentNode.parentNode.lastElementChild.style.display = 'block';
 		}	
 	}
 
+	document.getElementById("image").onchange = function () {
+		var imgFile = this.files[0];
+		var fReader = new FileReader();
+		fReader.onload = function () {
+			document.getElementsByClassName("container")[0].style.display = "none";
+			document.getElementById("preview-photo").src = fReader.result;
+			document.getElementById("photo-submit").style.display = "block";
+		}
+		fReader.readAsDataURL(imgFile);
+	}
+	
 
 });
 
