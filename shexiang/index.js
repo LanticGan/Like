@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 			if (this.src.match(/white/)) {
 				this.src = "src/icon/love-red.png";
-			} else {
+		s	} else {
 				this.src = "src/icon/love-white.png";
 			}
 		}	
@@ -47,10 +47,31 @@ $(document).ready(function(){
 			document.getElementsByClassName("container")[0].style.display = "none";
 			document.getElementById("preview-photo").src = fReader.result;
 			document.getElementById("photo-submit").style.display = "block";
+			console.log()
 		}
 		fReader.readAsDataURL(imgFile);
 	}
 	
+	$("#share-text").on("click", function() {
+		var form = new FormData(document.getElementById("imgForm"));
+		$.ajax({
+			url:"/api/posts",
+            type:"post",
+            data:form,
+            processData:false,
+            contentType:false,
+            success:function(data){
+            	alert("上传成功!");
+            },
+            error:function(e){
+              	alert("上传失败!");  
+            }  
+         });  
+	});
+
+	//Touchmove Event Listener
+	$(document).on("touchstart", function (e) {
+	})
 
 });
 

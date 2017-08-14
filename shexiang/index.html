@@ -29,7 +29,9 @@
 			<span>摄享</span>
 			<a href="#" id="photoer">
 				<label for="image"><img src="src/icon/photo.png" alt="photographer"></label>
-				<input type="file" id="image" name="" style="display: none">
+				<form id="imgForm" style="display: none">
+					<input type="file" id="image" name="img">
+				</form>
 			</a>
 
 		</div>
@@ -208,8 +210,8 @@
 				<p>分享</p>
 			</a>
 		</header>
-		<section>
-			<textarea name="" id="" cols="20" rows="4" placeholder="照片说明..."></textarea>
+		<section> 
+		<textarea name="description" form="imgForm" cols="20" rows="4" placeholder="照片说明..."></textarea>
 			<div class="preview-photo-container">
 				<img id="preview-photo" src="" alt="">
 			</div>

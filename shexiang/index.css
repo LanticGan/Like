@@ -192,6 +192,7 @@ input {
 	display: flex;
 	position: relative;
 	padding: 0.5rem;
+	border-bottom: 1px solid #efefef;
 }
 
 #photo-submit textarea{
@@ -210,7 +211,6 @@ input {
 }
 
 #preview-photo {
-	height: 100%;
 	width: 100%;
 }
 
