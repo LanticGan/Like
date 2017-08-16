@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/weui.min.css">
 	<link rel="stylesheet" href="index.css">
+	<link href="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.css" rel="stylesheet" type="text/css">
 
  <script>
 	var styleEle = document.createElement("style");
@@ -41,162 +42,9 @@
 			<div class="btn-item" id="btn-item2">我关注的</div>
 		</div>
 
-		<article class="photo-share" id="ta">
-			<header class="user">
-				<a href="http://www.baidu.com" >
-					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
-					<span>14级摄影系</span>
-					<span class="dividing-line">|</span>
-					<span>Cristiano</span>
-				</a>
-			</header>
+		<div id="target">
+		</div>
 
-			<div class="horizontal-photo">
-				<img src="src/img/cr7.jpg" alt="content">
-			</div>
-
-			<div class="author-comment">
-					<span class="author">Cris:</span>
-					<span>This is my frist day</span>
-			</div>
-
-			<div class="operate">
-				<div class="love-item">
-					<img src="src/icon/love-white.png" alt="love-item" class="love-icon">
-				</div>
-				<div class="comment-icon">
-					<img src="src/icon/comment.png" alt="comment-icon">
-				</div>
-			</div>
-
-			<div class="love-numbers">
-				<span>1</span>
-				<span>次赞</span>
-			</div>
-
-			<div class="communication">
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
-				</div>
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
-				</div>				
-			</div>
- 
-			<div class="comment-form">
-				<form action="">
-					<input type="text" placeholder="评论">
-				</form>
-			</div> 
-
-		</article>
-
-
-		<article class="photo-share" id="">
-			<header class="user">
-				<a href="http://www.baidu.com" >
-					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
-					<span>14级摄影系</span>
-					<span class="dividing-line">|</span>
-					<span>Cristiano</span>
-				</a>
-			</header>
-
-			<div class="horizontal-photo">
-				<img src="src/img/cat1.jpg" alt="content">
-			</div>
-
-			<div class="author-comment">
-					<span class="author">Cris:</span>
-					<span>This is my frist day</span>
-			</div>
-
-			<div class="operate">
-				<div class="love-item">
-					<img src="src/icon/love-white.png" alt="love-item" class="love-icon">
-				</div>
-				<div class="comment-icon">
-					<img src="src/icon/comment.png" alt="comment-icon">
-				</div>
-			</div>
-
-			<div class="love-numbers">
-				<span>1</span>
-				<span>次赞</span>
-			</div>
-
-			<div class="communication">
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
-				</div>
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
-				</div>				
-			</div>
- 
-			<div class="comment-form">
-				<form action="">
-					<input type="text" placeholder="评论">
-				</form>
-			</div> 
-
-		</article>
-
-		<article class="photo-share" id="">
-			<header class="user">
-				<a href="http://www.baidu.com" >
-					<img src="src/img/cr7.jpg" alt="avatar" class="avatar">
-					<span>14级摄影系</span>
-					<span class="dividing-line">|</span>
-					<span>Cristiano</span>
-				</a>
-			</header>
-
-			<div class="vertical-photo">
-				<img src="src/img/dog1.jpg" alt="content">
-			</div>
-
-			<div class="author-comment">
-					<span class="author">Cris:</span>
-					<span>This is my frist day</span>
-			</div>
-
-			<div class="operate">
-				<div class="love-item">
-					<img src="src/icon/love-white.png" alt="love-item" class="love-icon">
-				</div>
-				<div class="comment-icon">
-					<img src="src/icon/comment.png" alt="comment-icon">
-				</div>
-			</div>
-
-			<div class="love-numbers">
-				<span>1</span>
-				<span>次赞</span>
-			</div>
-
-			<div class="communication">
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
-				</div>
-				<div class="user-comment">
-					<span class="author">lantic:</span>
-					<span>testtesdda</span>
-				</div>				
-			</div>
- 
-			<div class="comment-form">
-				<form action="">
-					<input type="text" placeholder="评论">
-				</form>
-			</div> 
-
-		</article>
 	</div>
 
 
@@ -236,7 +84,75 @@
 		</a>
 	</nav>
 
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
+			<!-- Background of PhotoSwipe. 
+				It's a separate element as animating opacity is faster than rgba(). -->
+			<div class="pswp__bg"></div>
+
+			<!-- Slides wrapper with overflow:hidden. -->
+			<div class="pswp__scroll-wrap">
+
+				<!-- Container that holds slides. 
+					PhotoSwipe keeps only 3 of them in the DOM to save memory.
+					Don't modify these 3 pswp__item elements, data is added later on. -->
+				<div class="pswp__container" style="transform: translate3d(0px, 0px, 0px);">
+					<div class="pswp__item" style="display: block; transform: translate3d(-420px, 0px, 0px);"></div>
+					<div class="pswp__item" style="transform: translate3d(0px, 0px, 0px);"><div class="pswp__zoom-wrap" style="transform: translate3d(0px, 113.6px, 0px) scale(1.00053);"><img class="pswp__img pswp__img--placeholder" src="http://39.108.62.237:3000/assets/photos/thumbs/2DXS771DY7YTMERK04CKEC2EF1.jpg" style="width: 375px; height: 250px; display: none;"><img class="pswp__img" src="http://39.108.62.237:3000/assets/photos/thumbs/2DXS771DY7YTMERK04CKEC2EF1.jpg" style="display: block; width: 375px; height: 250px;"></div></div>
+					<div class="pswp__item" style="display: block; transform: translate3d(420px, 0px, 0px);"></div>
+				</div>
+
+				<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+				<div class="pswp__ui pswp__ui--one-slide pswp__ui--hidden">
+
+					<div class="pswp__top-bar">
+
+						<!--  Controls are self-explanatory. Order can be changed. -->
+
+						<div class="pswp__counter"></div>
+
+						<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+						<button class="pswp__button pswp__button--share pswp__element--disabled" title="Share"></button>
+
+						<button class="pswp__button pswp__button--fs pswp__element--disabled" title="Toggle fullscreen"></button>
+
+						<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+						<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+						<!-- element will get class pswp__preloader--active when preloader is running -->
+						<div class="pswp__preloader">
+							<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap pswp__element--disabled">
+						<div class="pswp__share-tooltip"></div> 
+					</div>
+
+					<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+					</button>
+
+					<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+					</button>
+
+					<div class="pswp__caption">
+						<div class="pswp__caption__center"></div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.js" defer=""></script>
+<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe-ui-default.min.js" defer=""></script>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="index.js"></script>
 </body>

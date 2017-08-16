@@ -12,37 +12,37 @@ $(function() {
 					name: "校园概况"
 				},				
 				{
-					href: "#",
+					href: "byszn/index.html",
 					src: "res/icon/byszn.png",
 					name: "毕业生指南"
 				},			
 				{
-					href: "#",
+					href: "xymz/index.html",
 					src: "res/icon/xymz.png",
 					name: "校医门诊"
 				},
 				{
-					href: "#",
+					href: "jdzq/index.html",
 					src: "res/icon/jdzq.png",
 					name: "奖贷助勤"
 				},
 				{
-					href: "#",
+					href: "yxpx/index.html",
 					src: "res/icon/yxpx.png",
 					name: "优秀评选"
 				},		
 				{
-					href: "#",
+					href: "xygl/index.html",
 					src: "res/icon/xygl.png",
 					name: "校园管理"
 				},
 				{
-					href: "#",
+					href: "ykt/index.html",
 					src: "res/icon/ykt.png",
 					name: "一卡通"
 				},	
 				{
-					href: "#",
+					href: "sqjbl/index.html",
 					src: "res/icon/sqjbl.png",
 					name: "申请及办理"
 				},		

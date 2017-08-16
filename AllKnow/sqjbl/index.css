@@ -1,0 +1,17 @@
+
+.header {
+	font-size: 1.2em;
+	text-align: center;
+	padding: 0.4em 0;
+}
+
+.header img{
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	vertical-align: middle;
+}
+
+.header span{
+	vertical-align: middle;
+}

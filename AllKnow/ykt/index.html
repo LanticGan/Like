@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		
+		<title>一卡通</title>
+		<link rel="stylesheet" href="../../css/reset.css">
+		<link rel="stylesheet" href="../../css/weui.min.css"> 
+		<link rel="stylesheet" href="index.css">
+	</head>
+	
+	<body ontouchstart>
+		<div class="container">
+			<div class="header">
+				<img src="../res/icon/ykt.png" alt="">
+				<span>一卡通</span>
+			</div>
+			<div id="listContainer" class="weui-cells" style="margin-top:2em;">
+			Loading...
+	        </div>
+		</div>
+	
+	<script src=../../js/jquery-3.2.1.min.js></script>
+	<script src="../js/mustache.min.js"></script>
+	<script id="template" type="x-tmpl-mustache">
+	{{#listItems}}
+	    <a class="weui-cell weui-cell_access" href={{href}}>
+            <div class="weui-cell__bd">
+                <p>{{name}}</p>
+            </div>
+            <div class="weui-cell__ft">
+            </div>
+        </a>
+    {{/listItems}}
+	</script>
+	<script src="index.js"></script>
+	</body>
+</html>
