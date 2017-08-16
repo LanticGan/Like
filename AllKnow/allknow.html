@@ -13,7 +13,8 @@
 	<body ontouchstart>
 		<div class="container">
 			<div class="header">
-				<span>百事通</span>
+				<img src="res/icon/school.png" alt="">
+				<span>校园百事通</span>
 			</div>
 			<div class="weui-search-bar" id="searchBar">
 				<form class="weui-search-bar__form" id="search-form">
@@ -29,8 +30,26 @@
 				</form>
 				<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
 			</div>
+			<div id="catalog">总目录</div>
+
+			<div id="listContainer" class="weui-cells" style="margin-top:0;">Loading...
+        	</div>
 		</div>
-
-
+	
+	<script src=../js/jquery-3.2.1.min.js></script>
+	<script src="js/mustache.min.js"></script>
+	<script id="template" type="x-tmpl-mustache">
+	{{#listItems}}
+	    <a href={{href}}>
+	    	<div class="weui-cell" style="padding:0.8em 1em; border-bottom:1px solid #efefef;">
+	            <div class="weui-cell__hd"><img src={{src}} alt="" style="width:24px;margin-right:10px;display:block"></div>
+	            <div class="weui-cell__bd">
+	                <p style="font-size:1.1em">{{name}}</p>
+	            </div>
+	    	</div>
+	    </a>
+	{{/listItems}}
+	</script>
+	<script src="allknow.js"></script>
 	</body>
 </html>
