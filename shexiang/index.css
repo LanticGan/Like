@@ -29,12 +29,14 @@
 .btn-item {
 	margin: 0 0.4rem;
 	border: 1px solid rgba(0,0,0,0.3);
-	border-radius: 25px;
+	border-radius: 8px;
 	padding: 4px;
 }
 
 .item-on {
-	background: rgba(148,148,148,0.3);
+	border:1px solid black;
+	font-weight: bold;
+	box-shadow: 1px 1px 5px #4a4a4a;
 }
 
 .photo-share {
