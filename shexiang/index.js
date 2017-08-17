@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 //initphoto
-	
+	function getPhoto() {
 		$.get("../api/posts", function (data,status) {
 			data.forEach(function (item) {
 				var img = $(`<img src=${item.thumb} hidden>`);
@@ -11,12 +11,15 @@ $(document).ready(function(){
 					$(this).prev().text("");
 					$(this).removeAttr("hidden");
 				})
-				var loveItem = "aaa";
+				var loveItem = "";
 				if(item.doilike){
 					loveItem = $(`<img src="src/icon/love-red.png" alt="love-item" class="love-icon">`)
 				} else {
 					loveItem = $(`<img src="src/icon/love-white.png" alt="love-item" class="love-icon">`)
 				}
+				loveItem.on("click", function () {
+					console.log(this.src);
+				})
 				var article = $(`
 					<article class="photo-share" id="ta">
 						<header class="user">
@@ -68,12 +71,16 @@ $(document).ready(function(){
 						</div> 
 					</article>`);
 
-			article.children(".frame").append(img);
-			article.children(".love-item").append(loveItem);
-			$("#target").append(article);
-			})
-		});
+				article.children(".frame").append(img);
+				article.find(".love-item").append(loveItem);
+				$("#target").append(article);
 
+
+			});
+		});
+	};
+
+	getPhoto();
 // btn listner
 	var btn1 = document.getElementById("btn-item1");
 	var btn2 = document.getElementById("btn-item2");
@@ -97,7 +104,7 @@ $(document).ready(function(){
 	}, false);
 
 // love event listner
-
+	console.log(typeof getPhoto)
 
 	var loveBtnList = document.getElementsByClassName("love-item");
 	for (var i = 0; i < loveBtnList.length; ++i) {
