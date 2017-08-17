@@ -131,6 +131,30 @@ $(document).ready(function(){
 	};
 
 	getPhoto();
+
+
+// back-to-top Action 
+	$("#back-to-top").on("click", function () {
+		document.body.scrollTop = 0;
+		this.style.display = 'none';
+	})
+	
+
+	$(document).on("touchstart", function(e) {
+		var finger = e.targetTouches[0];
+		var initY = finger.clientY;
+		$(this).on("touchmove", function (ev) {
+			var presentY = ev.targetTouches[0].clientY;
+			if (presentY > initY) {
+				$("#back-to-top").css("display", "block");
+			} else {
+				$("#back-to-top").css("display", "none");
+			}
+		})
+	});
+
+
+
 // btn listner
 	var btn1 = document.getElementById("btn-item1");
 	var btn2 = document.getElementById("btn-item2");
