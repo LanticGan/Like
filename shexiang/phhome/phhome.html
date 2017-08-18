@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+
+	<script>
+		var styleEle = document.createElement("style");
+		document.documentElement.firstElementChild.appendChild(styleEle);
+
+		(function () {
+			var px = document.documentElement.clientWidth / 10;
+			styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
+		})()
+	</script> 
+
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../../css/weui.min.css">
+
+</head>
+
+<body ontouchstart="">
+
+	<div class="container">
+		<div class="header">
+			<div class="backgroung">
+				<img src="../src/img/cr7.jpg" alt="">
+			</div>
+			<div class="info">
+				<div class="avatar">
+					<img src="../src/img/test.png" alt="">
+				</div>
+				<p>Cris</p>
+				<p>14级摄影系</p>
+				<p style="font-size:0.4rem;">
+					10粉丝 | 55作品
+				</p>
+			</div>
+			<div class="follow">
+				关注	
+			</div>
+		</div>
+
+		<div class="target">
+			
+		</div>
+		
+
+
+	</div>
+
+	<script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

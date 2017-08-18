@@ -79,7 +79,7 @@ $(document).ready(function(){
 				var article = $(`
 					<article class="photo-share" id="ta">
 						<header class="user">
-							<a href="http://www.baidu.com" >
+							<a href="phhome/phhome.html" >
 								<img src=${item.avat} alt="avatar" class="avatar">
 								<span>${item.intro}</span>
 								<span class="dividing-line">|</span>
