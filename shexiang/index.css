@@ -268,3 +268,27 @@ input {
 	width: 100%;
 	height: 100%;
 }
+
+#show-original {
+    position: fixed;
+    bottom: 2.5rem;
+    z-index: 2000;
+    left: 0;
+    right: 0;
+    width: 3rem;
+    margin: 0 auto;
+    border: 1px solid #FFF;
+    line-height: 1rem;
+    border-radius: 0.4rem;
+    background: #000;
+    color: #FFF;
+    -webkit-transition: opacity .333s;
+    transition: opacity .333s;
+    opacity: 0.3;
+    text-align: center;
+    font-size: 0.5rem;
+}
+
+.show-original-hidden {
+    opacity: 0 !important;
+}

@@ -249,7 +249,10 @@ $(document).ready(function(){
 		});
 		gallery.init();
 
-		return false;
+		$("#show-original").removeAttr("hidden").attr("href", $(this).attr("href"));
+		setTimeout(function() {
+			$("#show-original").removeClass("show-original-hidden");
+		});
 	});
 
 });
