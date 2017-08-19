@@ -1,8 +1,10 @@
 $(document).ready(function(){
 
 //initphoto
-	function getPhoto() {
-		$.get("../api/posts", function (data,status) {
+    var photoPage = 1;
+    function getPhoto(page) {
+		url = "../api/posts?page=" + page; 
+		$.get(url, function (data,status) {
 			data.forEach(function (item) {
 				// create Img DOM
 				var img = $(`<img src=${item.thumb} hidden>`);
@@ -125,12 +127,11 @@ $(document).ready(function(){
 				article.find(".love-item").append(loveItem);
 				$("#target").append(article);
 
-
 			});
 		});
 	};
 
-	getPhoto();
+	getPhoto(photoPage);
 
 
 // back-to-top Action 
@@ -138,12 +139,24 @@ $(document).ready(function(){
 		document.body.scrollTop = 0;
 		this.style.display = 'none';
 	})
-	
 
+var unlock = true;
+// Listen Touchmove Event
 	$(document).on("touchstart", function(e) {
 		var finger = e.targetTouches[0];
 		var initY = finger.clientY;
 		$(this).on("touchmove", function (ev) {
+		// get more photo 
+			var Ctop = document.body.scrollTop
+	        var Cheight = document.body.clientHeight
+	        if (Ctop > Cheight * 0.9 && unlock) {
+	        	photoPage += 1;
+	        	getPhoto(photoPage);
+	        	unlock = false;
+	        	setTimeout(function () {
+	        		unlock = true;
+	        	}, 5000);
+	        }
 			var presentY = ev.targetTouches[0].clientY;
 			if (presentY > initY) {
 				$("#back-to-top").css("display", "block");
@@ -152,6 +165,7 @@ $(document).ready(function(){
 			}
 		})
 	});
+
 
 
 
@@ -185,7 +199,6 @@ $(document).ready(function(){
 			document.getElementsByClassName("container")[0].style.display = "none";
 			document.getElementById("preview-photo").src = fReader.result;
 			document.getElementById("photo-submit").style.display = "block";
-			console.log()
 		}
 		fReader.readAsDataURL(imgFile);
 	}
@@ -199,10 +212,11 @@ $(document).ready(function(){
             processData:false,
             contentType:false,
             success:function(data){
-            	alert("上传成功!");
+            	alert("照片发布成功!");
+            	window.location.href = "index.html";
             },
             error:function(e){
-              	alert("上传失败!");  
+              	alert("很抱歉，照片发布失败，请重试。");  
             }  
          });  
 

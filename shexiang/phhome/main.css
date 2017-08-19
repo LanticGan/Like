@@ -1,4 +1,4 @@
-.header {
+.ph-header {
 	position: relative;
 	width: 100%;
 	font-size: 0.6rem;
@@ -6,7 +6,7 @@
 	border-bottom: 1px solid #efefef;
 }
 
-.backgroung {
+.ph-backgroung {
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -14,14 +14,14 @@
 	overflow: hidden;
 }
 
-.backgroung img{
+.ph-backgroung img{
 	width: 100%;
 	height: 100%;
 	filter: grayscale(50%) blur(2px);
 
 }
 
-.info {
+.ph-info {
 	position: relative;
 	padding-top: 1.5rem;
 	z-index: 200;
@@ -30,18 +30,18 @@
 	color: white;
 }
 
-.avatar {
+.ph-avatar {
 	width: 65px;
 	height: 65px;
 	margin: 0 auto 10px auto;
 }
 
-.avatar img {
+.ph-avatar img {
 	width: 100%;
 	height: 100%;
 }
 
-.follow {
+.ph-follow {
 	position: relative;
 	width: 2rem;
 	height: 0.8rem;
@@ -59,4 +59,5 @@
 	border: 1px solid rgba(0, 0, 0, 0.5) !important;
 	color: rgba(0, 0, 0, 0.5) !important; 
 }
+
 
