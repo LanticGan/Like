@@ -1,0 +1,49 @@
+.header {
+	width: 100%;
+	font-size: 0.6rem;
+	text-align: center;
+	padding: 0.35rem 0;
+	border-bottom: 1px solid #efefef;
+}
+
+
+.input-item {
+	display: flex;
+	font-size: 0.5rem;
+	padding: 0.2rem 0.5rem;
+	border-bottom: 1px solid #efefef;
+}
+
+
+.input-name {
+	margin-right: 30px;
+}
+
+input {
+	width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    color: inherit;
+    height: 1.47058824em;
+    line-height: 1.47058824;
+}
+
+.student-id {
+	padding: 0.2rem 0.5rem;
+	color: #6a6a6a;
+}
+
+#addImg {
+	font-size: 0.5rem;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+#addImg img {
+	width: 36px;
+	height: 36px;
+	margin-right: 26px;
+}
+

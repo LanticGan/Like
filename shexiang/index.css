@@ -85,6 +85,8 @@
 
 .comment-icon{
 	display: inline-block;
+	margin-bottom: 1px;
+	margin-left: 1px;
 	width: 28px;
 	height: 28px;
 }
@@ -255,8 +257,8 @@ input {
 	position: fixed;
 	bottom: 2rem;
 	background-color: white;
-	width: 24px;
-	height: 24px;
+	width: 28px;
+	height: 28px;
 	padding: 6px;
 	border: 1px solid #d8d8d8;
 	right: 1rem;
