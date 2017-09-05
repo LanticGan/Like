@@ -19,7 +19,7 @@
 	margin-right: 30px;
 }
 
-input {
+.input-item input {
 	width: 100%;
     border: 0;
     outline: 0;
@@ -38,12 +38,37 @@ input {
 #addImg {
 	font-size: 0.5rem;
 	vertical-align: middle;
-	display: inline-block;
+	display: flex;
 }
 
 #addImg img {
 	width: 36px;
 	height: 36px;
-	margin-right: 26px;
+	margin-right: 34px;
 }
 
+#preview-img {
+	width: 36px;
+	height: 36px;
+}
+
+#preview-img img {
+	width: 100%;
+	height: 100%;
+}
+
+.submit {
+	text-align: center;
+}
+
+#btn {
+	outline: 0;
+    -webkit-appearance: none;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
