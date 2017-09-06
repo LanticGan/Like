@@ -10,19 +10,18 @@
 }
 
 .user-avatar {
-/* 	height: 100px;
-width: 100px;
-border-radius: 50%;
-overflow: hidden; */
+
+	width: 2.6rem;
+	height: 2.6rem;
 	margin: 0.8rem auto;
 	display: flex;
 	justify-content: center;
 }
 
 #ava {
-
-	width: 2.6rem;
-	height: 2.6rem;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 }
 
 .user-name {
