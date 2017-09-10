@@ -1,12 +1,14 @@
 $(document).ready(function(){
 
 //initphoto
-    var photoPage = 1;
+    var photoPage = 1,
+    	theLatestPhotoTime;
     function getPhoto(url) {
 		$.ajax({
 			url: url,
 			type: "get",
 			success: function (data,status) {
+				theLatestPhotoTime = data[0].time;
 				data.forEach(function (item) {
 					// create Img DOM
 					var img = $(`<img id=${item.id} src=${item.thumb} hidden>`);
@@ -51,75 +53,51 @@ $(document).ready(function(){
 					var commentItem = $(`<img src="src/icon/comment.png" alt="comment-icon">`);
 					commentItem.on("load", function () {
 						$(this).on("click",function () {
-							var articleId = $(this).parents("article").children("a.frame").children()[1].id;
 							var formParent = this.parentNode.parentNode.parentNode.lastElementChild;
 							formParent.style.display = 'block';
 							var form = formParent.firstElementChild;
 							form.elements[0].focus();
-							$(form).on("submit", function (event) {
-								event.preventDefault();
-								$.ajax({
-									url: `/api/posts/${articleId}/comments`,
-									type: "post",
-									data: {
-										content: this.elements[0].value
-									}
-								});
-								var newCommentDom = $(`<div> 
-									<a href="#" style="display: block" class="user-comment">
-										<span class="author">我: </span>
-										<span>${this.elements[0].value}</span>
-									</a>
-									</div>`)
-								$(formParent).prev().append(newCommentDom);
-								form.elements[0].blur();
-								formParent.style.display = 'none';
-							})
 						})
 
 					})
 
 					// create otherUserComments DOM
-					var commentsContainer = $(`<div></div>`);	 
-					$.ajax({
-						url: `/api/posts/${item.id}/comments` ,
-						type: "get",
-						success: function (result) {
-							var comments = result;
-							var userName;
-							comments.forEach(function (comment) {
-								var ucObj = $(`<a href="javascript:;" style="display: block" class="user-comment" ></a>`)
-								if (comment.self) {
-									userName = "我";
-								} else {
-									userName = comment.name;
-								}
-								var contentStr = comment.content;
-								if (contentStr[0] == "@") {
-									var splitCharPosition = contentStr.indexOf(":");
-									var repliedName = contentStr.slice(1,splitCharPosition);
-									userName = `${userName} 回复 ${repliedName}`;
-									comment.content = contentStr.slice(splitCharPosition+2);
-								}
-								var uName = $(`<span class="author">${userName}: </span>`)
-								var uContent = $(`<span>${comment.content}</span>`)
-								ucObj.append(uName);
-								ucObj.append(uContent);
-								ucObj.on("click", function () {
-									var commentFormParent = this.parentNode.parentNode.parentNode.lastElementChild;
-									if (commentFormParent.style.display != "block") {
-										commentFormParent.style.display = "block";
-									} 
-									var commentForm = commentFormParent.firstElementChild;
-									var commentInput = commentForm.firstElementChild;
-									commentInput.value = `@${comment.name}: `
-									commentInput.focus();
+					var commentsContainer = $(`<div></div>`);
+					var comments = item.comments,
+						userName;
+					comments.forEach(function (comment) {
+						var ucObj = $(`<a href="javascript:;" style="display: block" class="user-comment" ></a>`)
+						if (comment.self) {
+							userName = "我";
+						} else {
+							userName = comment.name;
+						}
+						var contentStr = comment.content;
+						if (contentStr[0] == "@") {
+							var splitCharPosition = contentStr.indexOf(":");
+							var repliedName = contentStr.slice(1,splitCharPosition);
+							userName = `${userName} 回复 ${repliedName}`;
+							comment.content = contentStr.slice(splitCharPosition+2);
+						}
+						var uName = $(`<span class="author">${userName}: </span>`)
+						var uContent = $(`<span>${comment.content}</span>`)
+						ucObj.append(uName);
+						ucObj.append(uContent);
+						ucObj.on("click", function () {
+							var commentFormParent = this.parentNode.parentNode.parentNode.lastElementChild;
+							if (commentFormParent.style.display != "block") {
+								commentFormParent.style.display = "block";
+							} 
+							var commentForm = commentFormParent.firstElementChild;
+							var commentInput = commentForm.firstElementChild;
+							commentInput.value = `@${comment.name}: `
+							commentInput.focus();
 
-								})
-								commentsContainer.append(ucObj);
-							})
-						},
-					});
+						})
+						commentsContainer.append(ucObj);
+					})
+				
+					
 
 
 
@@ -172,6 +150,29 @@ $(document).ready(function(){
 					article.find(".comment-icon").append(commentItem);
 					article.find(".love-item").append(loveItem);
 					$("#target").append(article);
+
+
+					// comment submit
+					var articleId = article.children("a.frame").children()[1].id;
+					article.children(".comment-form").children().on("submit", function (event) {
+						event.preventDefault();
+						$.ajax({
+							url: `/api/posts/${articleId}/comments`,
+							type: "post",
+							data: {
+								content: this.elements[0].value
+							}
+						});
+						var newCommentDom = $(`<div> 
+							<a href="#" style="display: block" class="user-comment">
+								<span class="author">我: </span>
+								<span>${this.elements[0].value}</span>
+							</a>
+							</div>`)
+						article.children(".communication").append(newCommentDom);
+						this.elements[0].blur();
+						this.style.display = 'none';
+					})
 
 				});
 			},

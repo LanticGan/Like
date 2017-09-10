@@ -87,16 +87,34 @@ $(function () {
 								var comments = result;
 								var userName;
 								comments.forEach(function (comment) {
-									var ucObj = $(`<a href=${comment.user} style="display: block" class="user-comment"></a>`)
+									var ucObj = $(`<a href="javascript:;"" style="display: block" class="user-comment"></a>`)
 									if (comment.self) {
 										userName = "我";
 									} else {
 										userName = comment.name;
 									}
+									var contentStr = comment.content;
+									if (contentStr[0] == "@") {
+										var splitCharPosition = contentStr.indexOf(":");
+										var repliedName = contentStr.slice(1,splitCharPosition);
+										userName = `${userName} 回复 ${repliedName}`;
+										comment.content = contentStr.slice(splitCharPosition+2);
+									}
 									var uName = $(`<span class="author">${userName}: </span>`)
 									var uContent = $(`<span>${comment.content}</span>`)
 									ucObj.append(uName);
 									ucObj.append(uContent);
+									ucObj.on("click", function () {
+									var commentFormParent = this.parentNode.parentNode.parentNode.lastElementChild;
+									if (commentFormParent.style.display != "block") {
+										commentFormParent.style.display = "block";
+									} 
+									var commentForm = commentFormParent.firstElementChild;
+									var commentInput = commentForm.firstElementChild;
+									commentInput.value = `@${comment.name}: `
+									commentInput.focus();
+
+								})
 									commentsContainer.append(ucObj);
 								})
 							},
@@ -111,6 +129,9 @@ $(function () {
 										<span>${item.intro}</span>
 										<span class="dividing-line">|</span>
 										<span>${item.name}</span>
+									</a>
+									<a href="javascript:;">
+										<img src="../src/icon/delete.png" alt="delete" class="delete-icon">
 									</a>
 								</header>
 						
@@ -151,6 +172,45 @@ $(function () {
 						article.find(".comment-icon").append(commentItem);
 						article.find(".love-item").append(loveItem);
 						$("#target").append(article);
+
+
+						// comment submit
+						var articleId = article.children("a.frame").children()[1].id;
+						article.children(".comment-form").children().on("submit", function (event) {
+							event.preventDefault();
+							$.ajax({
+								url: `/api/posts/${articleId}/comments`,
+								type: "post",
+								data: {
+									content: this.elements[0].value
+								}
+							});
+							var newCommentDom = $(`<div> 
+								<a href="#" style="display: block" class="user-comment">
+									<span class="author">我: </span>
+									<span>${this.elements[0].value}</span>
+								</a>
+								</div>`)
+							article.children(".communication").append(newCommentDom);
+							this.elements[0].blur();
+							this.style.display = 'none';
+						})
+
+						//delete article
+						$(".delete-icon").click(function () {
+							var deleteConfirm = confirm("要删除这张照片吗?")
+							if (deleteConfirm) {
+								$.ajax({
+									url: `/api/posts/${item.id}`,
+									type: "delete",
+									success: function () {
+										window.location.reload();
+									}
+								})
+							}
+						})
+
+
 					}
 				});
 			},
