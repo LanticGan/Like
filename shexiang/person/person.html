@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+
+	<script>
+		var styleEle = document.createElement("style");
+		document.documentElement.firstElementChild.appendChild(styleEle);
+
+		(function () {
+			var px = document.documentElement.clientWidth / 10;
+			styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
+		})()
+	</script> 
+
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/weui.min.css">
+	<link rel="stylesheet" href="../index.css">
+
+</head>
+
+<body ontouchstart="">
+
+	<div class="container">
+		<div class="header">
+			<span>我发布的</span>
+		</div>
+		
+		<div id="target">
+		</div>
+
+		<nav class="bottom-menu">	
+			<a href="../index.html" class="bottom-menu-item" id="home-item">
+				<img src="../src/icon/home.png" alt="">
+			</a>
+
+			<a href="../photographer/photographer.html" class="bottom-menu-item" id="photographer-item">
+				<img src="../src/icon/photographer.png" alt="">
+			</a>
+
+
+			<a href="#" class="bottom-menu-item" id="photographer-item">
+				<img src="../src/icon/person-on.png" alt="">
+			</a>
+
+			<a href="../../index.mst" class="bottom-menu-item">
+				<img src="../src/icon/function.png" alt="">
+			</a>
+		</nav>
+	</div>
+
+	<script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

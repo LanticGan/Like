@@ -2,9 +2,9 @@ $(document).ready(function(){
 
 //initphoto
     var photoPage = 1;
-    function getPhoto(page) {
+    function getPhoto(url) {
 		$.ajax({
-			url: "../api/posts?page=" + page,
+			url: url,
 			type: "get",
 			success: function (data,status) {
 				data.forEach(function (item) {
@@ -88,20 +88,40 @@ $(document).ready(function(){
 							var comments = result;
 							var userName;
 							comments.forEach(function (comment) {
-								var ucObj = $(`<a href=${comment.user} style="display: block" class="user-comment"></a>`)
+								var ucObj = $(`<a href="javascript:;" style="display: block" class="user-comment" ></a>`)
 								if (comment.self) {
 									userName = "我";
 								} else {
 									userName = comment.name;
 								}
+								var contentStr = comment.content;
+								if (contentStr[0] == "@") {
+									var splitCharPosition = contentStr.indexOf(":");
+									var repliedName = contentStr.slice(1,splitCharPosition);
+									userName = `${userName} 回复 ${repliedName}`;
+									comment.content = contentStr.slice(splitCharPosition+2);
+								}
 								var uName = $(`<span class="author">${userName}: </span>`)
 								var uContent = $(`<span>${comment.content}</span>`)
 								ucObj.append(uName);
 								ucObj.append(uContent);
+								ucObj.on("click", function () {
+									var commentFormParent = this.parentNode.parentNode.parentNode.lastElementChild;
+									if (commentFormParent.style.display != "block") {
+										commentFormParent.style.display = "block";
+									} 
+									var commentForm = commentFormParent.firstElementChild;
+									var commentInput = commentForm.firstElementChild;
+									commentInput.value = `@${comment.name}: `
+									commentInput.focus();
+
+								})
 								commentsContainer.append(ucObj);
 							})
 						},
 					});
+
+
 
 					// create article DOM
 					var article = $(`
@@ -163,8 +183,8 @@ $(document).ready(function(){
 		});
 	};
 
-	getPhoto(photoPage);
-
+	getPhoto("../api/posts?page=" + photoPage);
+	var userFollow = 0; // Help the scroll event to judge if the articles is followed.  
 
 // back-to-top Action 
 	$("#back-to-top").on("click", function () {
@@ -178,12 +198,16 @@ var unlock = true;
 		var finger = e.targetTouches[0];
 		var initY = finger.clientY;
 		$(this).on("touchmove", function (ev) {
-		// get more photo 
+		// Get More Photo 
 			var Ctop = document.body.scrollTop
 	        var Cheight = document.body.clientHeight
 	        if (Ctop > Cheight * 0.9 && unlock) {
 	        	photoPage += 1;
-	        	getPhoto(photoPage);
+	        	if (userFollow) {
+	        		getPhoto(`../api/posts?page=${photoPage}&following=1`);
+	        	} else {
+	        		getPhoto(`../api/posts?page=${photoPage}`)
+	        	}
 	        	unlock = false;
 	        	setTimeout(function () {
 	        		unlock = true;
@@ -201,7 +225,7 @@ var unlock = true;
 
 
 
-//  getPhoto
+//  Toggle Photo
 	var hotPhoto = document.getElementById("btn-item1");
 	var followPhoto = document.getElementById("btn-item2");
 
@@ -209,7 +233,9 @@ var unlock = true;
 
 		if (!hotPhoto.classList.contains("item-on")) {
 			hotPhoto.classList.add("item-on");
-			
+			photoPage = 1;
+			$("#target").empty();
+			getPhoto(`../api/posts?page=${photoPage}` );
 		}
 		if (followPhoto.classList.contains("item-on")) {
 			followPhoto.classList.remove("item-on");
@@ -220,6 +246,10 @@ var unlock = true;
 	followPhoto.addEventListener("click", function () {
 		if (!followPhoto.classList.contains("item-on")) {
 			followPhoto.classList.add("item-on");
+			$("#target").empty();
+			photoPage = 1;
+			getPhoto(`../api/posts?page=${photoPage}&following=1`);
+			userFollow = 1;
 		}
 		if (hotPhoto.classList.contains("item-on")) {
 			hotPhoto.classList.remove("item-on");
