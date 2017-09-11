@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="weui-grids">
-		    <a href="shexiang/index.html" class="weui-grid">
+		    <a href="shexiang/index.mst" class="weui-grid">
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/sx.png" alt="">
 		        </div>
@@ -52,13 +52,13 @@
 		        </div>
 		        <p class="weui-grid__label">跳蚤市场</p>
 		    </a>
-		    <a href="404.html" class="weui-grid">
+		    <!-- <a href="404.html" class="weui-grid">
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/qt.png" alt="">
 		        </div>
 		        <p class="weui-grid__label">倾听</p>
-		    </a>
-		    <a href="404.html" class="weui-grid">
+		    </a> -->
+		    <!-- <a href="404.html" class="weui-grid">
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/kcb.png" alt="">
 		        </div>
@@ -69,7 +69,7 @@
 		            <img src="./res/icon/xl.png" alt="">
 		        </div>
 		        <p class="weui-grid__label">校历</p>
-		    </a>
+		    </a> -->
 		    <a href="AllKnow/allknow.html" class="weui-grid">
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/bst.png" alt="">
@@ -82,35 +82,35 @@
 		        </div>
 		        <p class="weui-grid__label">成绩</p>
 		    </a>
-		    <a href="404.html" class="weui-grid">
-		        <div class="weui-grid__icon">
-		            <img src="./res/icon/gzwm.png" alt="">
-		        </div>
-		        <p class="weui-grid__label">关注我们</p>
-		    </a>
-		    <a href="javascript:;" class="weui-grid" id="more">
-		        <div class="weui-grid__icon">
-		            <img src="./res/icon/more.png" alt="">
-		        </div>
-		        <p class="weui-grid__label">更多</p>
-		    </a>
-		    <a href="http://118.114.52.38/" class="weui-grid" id="ydcx" style="display:none">
+	    <a href="http://msg.weixiao.qq.com/t/b451cef84c9ca0c4308c9eeeb16d07c8" class="weui-grid">
+    		<div class="weui-grid__icon">
+        		<img src="./res/icon/gzwm.png" alt="">
+    		</div>
+    		<p class="weui-grid__label">云就业</p>
+		</a> 
+<!-- 		    <a href="javascript:;" class="weui-grid" id="more">
+    <div class="weui-grid__icon">
+        <img src="./res/icon/more.png" alt="">
+    </div>
+    <p class="weui-grid__label">更多</p>
+</a> -->
+		    <a href="http://118.114.52.38/" class="weui-grid" id="ydcx">
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/ydcx.png" alt="">
 		        </div>
 		        <p class="weui-grid__label">用电查询</p>
 		    </a>
-		    <a href="card/index.html" class="weui-grid" id="ykt" style="display:none">
+		    <a href="http://mp.weixin.qq.com/s/cFQ5FIy2iEyJ9OXg9ob0XQ" class="weui-grid" id="ykt">
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/ykt.png" alt="">
 		        </div>
 		        <p class="weui-grid__label">一卡通</p>
 		    </a>
-		    <a href="404.html" class="weui-grid" id="jrwm" style="display:none">
+		    <a href="http://id.scmc.edu.cn:8080/sso/login?service=http%3A%2F%2Fmy.scmc.edu.cn%3A8080%2Fweb%2Fguest" class="weui-grid" id="jrwm">
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/jrwm.png" alt="">
 		        </div>
-		        <p class="weui-grid__label">加入我们</p>
+		        <p class="weui-grid__label">重修报名</p>
 		    </a>		    
     	</div>
 

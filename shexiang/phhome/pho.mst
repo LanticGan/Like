@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="../../css/reset.css">
 	<link rel="stylesheet" href="main.css">
 	<link rel="stylesheet" href="../../css/weui.min.css">
+	<link rel="stylesheet" href="/shexiang/index.css">
 
 </head>
 
@@ -25,16 +26,16 @@
 	<div class="container">
 		<div class="ph-header">
 			<div class="ph-backgroung">
-				<img src="../src/img/cr7.jpg" alt="">
+				<img src="/shexiang/src/img/phbg.jpg" alt="">
 			</div>
-			<div class="ph-info">
+			<div class="ph-info" id={{id}}>
 				<div class="ph-avatar">
-					<img src="../src/img/test.png" alt="">
+					<img src="{{avatar}}" alt="">
 				</div>
-				<p>Cris</p>
-				<p>14级摄影系</p>
+				<p>{{nickname}}</p>
+				<p>{{intro}}</p>
 				<p style="font-size:0.4rem;">
-					10粉丝 | 55作品
+					{{follower_count}}粉丝 | {{post_count}}作品
 				</p>
 			</div>
 			<div class="ph-follow">

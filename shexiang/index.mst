@@ -28,12 +28,19 @@
 	<div class="container">
 		<div class="header">
 			<span>摄享</span>
+			{{#isPho}}
 			<a href="#" id="photoer">
 				<label for="image"><img src="src/icon/photo.png" alt="photographer"></label>
 				<form id="imgForm" style="display: none">
 					<input type="file" id="image" name="img">
 				</form>
 			</a>
+			{{/isPho}}
+			{{^isPho}}
+			<a href="identify/index.html" id="photoer">
+				<img src="src/icon/photo.png" alt="photographer">
+			</a>
+			{{/isPho}}
 
 		</div>
 

@@ -1,30 +1,32 @@
 $(function () {
 
-
 	function getPhosList (url) {
 		$.ajax({
 			url: url,
 			type: "get",
 			success: function (data) {
 				data.forEach( function (element, index) {
-					var phosItem = $(`<a href="../phhome/phhome.html" class="photographer">
+					var phosItem = $(`<a href="/shexiang/phhome/pho.mst" id=${element.id} class="photographer">
 			            <div class="avatar">
-			                <img src="../src/img/test.png" alt="">
+			                <img src=${element.avatar} alt="">
 			            </div>
-			            <p class="weui-grid__label">Cris</p>
-			            <p class="weui-grid__label">14级摄影系</p>
+			            <p class="weui-grid__label">${element.nickname}</p>
+			            <p class="weui-grid__label">${element.intro}</p>
 			            <div class="desciption">
-			            	<p>&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa commodi, fugit suscipit ut, sunt at ipsa esse quam, a corporis libero labore. Dolore, cum. Doloribus corrupti illum cum totam veritatis.</p>
+			            	<p>${element.resume}</p>
 			            </div>
 			       		</a>
-					`)
+					`);
+					$(".photographer-list").append(phosItem);
 				});
 			},
 		});
 	}
 
+	getPhosList("/api/phos");
 
-	$(".weui-navbar__item").on("click", function() {
+
+	function toggleBtn() {
 		if (!this.classList.contains("weui-bar__item_on")) {
 			this.classList.add("weui-bar__item_on");
 			var otherBar = $(this).siblings(".weui-navbar__item");
@@ -34,5 +36,24 @@ $(function () {
 				}
 			}
 		}
+	}
+
+	$("#latest").click(function () {
+			toggleBtn.call(this);
+			$(".photographer-list").empty();
+			getPhosList("/api/phos?order=new");
+	});
+
+	$("#hot").click(function () {
+			toggleBtn.call(this);
+			$(".photographer-list").empty();
+			getPhosList("/api/phos?order=hot");
+	});
+
+	$("#followed").click(function () {
+			toggleBtn.call(this);
+			$(".photographer-list").empty();
+			getPhosList("/api/phos?following=1");
 	});
 }); 
+

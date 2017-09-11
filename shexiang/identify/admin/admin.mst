@@ -23,24 +23,42 @@
 			<div class="header">
 				<span>管理员审核</span>
 			</div>
+		
+			<div class="info" id={{id}}>
+				<p>姓名:{{name}}</p>
+				<p>年级:{{grade}}</p>
+				<p>院系:{{major}}</p>
+				<p>手机号码:{{phone}}</p>
+				<p>个人信息:{{info}}</p>
+				<div class="student-pho">
+					{{#matertials}}
+					<a href={{.}}>
+						<img src={{.}} alt="test">
+					</a>
+					{{/matertials}}
+				</div>
+			</div>
 
-		<div class="weui-cells">
-            <a class="weui-cell weui-cell_access" href="details/details.html">
-                <div class="weui-cell__bd">
-                    <p>名字 年级 院系</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
-            </a>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
-            </a>
-        </div>
+			<div class="identify-btn">
+				<div id="agree">
+					同意
+				</div>
+				<div id="refuse">
+					拒绝
+				</div>
+			</div>
+
+			<div id="remaining">
+				待审核人数:{{total_count}}
+			</div>
 		</div>
+		
+<!-- 	<div class="reason" style="display: none">
+	<form action="" id="reasonForm">
+		<input type="text" placeholder="拒绝理由" id="refuse-reason">
+		<input type="submit" value="确认" id="submit" style="display: none">
+	</form>
+</div> -->
 
 		<script src="../../../js/jquery-3.2.1.min.js"></script>
 		<script src="admin.js"></script>

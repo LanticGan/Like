@@ -38,9 +38,10 @@
 
 #addImg {
 	font-size: 0.5rem;
-	vertical-align: middle;
 	display: flex;
+	line-height: 36px;
 }
+
 
 #addImg img {
 	width: 36px;

@@ -120,6 +120,25 @@ $(function () {
 							},
 						});
 
+
+						//Delete Article
+						var deleteItem = $(`<a href="javascript:;">
+										<img src="../src/icon/delete.png" alt="delete" class="delete-icon">
+									</a>`);
+						deleteItem.click(function () {
+							var deleteConfirm = confirm("要删除这张照片吗?")
+							if (deleteConfirm) {
+								$.ajax({
+									url: `/api/posts/${item.id}`,
+									type: "delete",
+									success: function () {
+										window.location.reload();
+									}
+								})
+							}
+						});
+
+
 						// create article DOM
 						var article = $(`
 							<article class="photo-share" id="ta">
@@ -129,9 +148,6 @@ $(function () {
 										<span>${item.intro}</span>
 										<span class="dividing-line">|</span>
 										<span>${item.name}</span>
-									</a>
-									<a href="javascript:;">
-										<img src="../src/icon/delete.png" alt="delete" class="delete-icon">
 									</a>
 								</header>
 						
@@ -171,6 +187,7 @@ $(function () {
 						article.children(".communication").append(commentsContainer);
 						article.find(".comment-icon").append(commentItem);
 						article.find(".love-item").append(loveItem);
+						article.children("header").append(deleteItem);
 						$("#target").append(article);
 
 
@@ -196,19 +213,6 @@ $(function () {
 							this.style.display = 'none';
 						})
 
-						//delete article
-						$(".delete-icon").click(function () {
-							var deleteConfirm = confirm("要删除这张照片吗?")
-							if (deleteConfirm) {
-								$.ajax({
-									url: `/api/posts/${item.id}`,
-									type: "delete",
-									success: function () {
-										window.location.reload();
-									}
-								})
-							}
-						})
 
 
 					}
