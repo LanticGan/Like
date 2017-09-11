@@ -6,7 +6,7 @@ $(function () {
 			type: "get",
 			success: function (data) {
 				data.forEach( function (element, index) {
-					var phosItem = $(`<a href="/shexiang/phhome/pho.mst" id=${element.id} class="photographer">
+					var phosItem = $(`<a href=${element.id} id=${element.id} class="photographer">
 			            <div class="avatar">
 			                <img src=${element.avatar} alt="">
 			            </div>

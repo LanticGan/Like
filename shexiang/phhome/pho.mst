@@ -14,9 +14,9 @@
 		})()
 	</script> 
 
-	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../../css/reset.css">
 	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="../../css/weui.min.css">
+	<link rel="stylesheet" href="../../../css/weui.min.css">
 	<link rel="stylesheet" href="/shexiang/index.css">
 
 </head>
@@ -48,7 +48,7 @@
 		
 	</div>
 
-	<script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="../../../js/jquery-3.2.1.min.js"></script>
 	<script src="main.js"></script>
 </body>
 </html>
