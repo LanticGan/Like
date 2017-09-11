@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" href="details.css">
+		<link rel="stylesheet" href="../../../../css/reset.css">
+		<link rel="stylesheet" href="../../../../css/weui.min.css">
+
+		<script>
+		var styleEle = document.createElement("style");
+		document.documentElement.firstElementChild.appendChild(styleEle);
+
+		(function () {
+			var px = document.documentElement.clientWidth / 10;
+			styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
+		})()
+		</script> 
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<span>管理员审核</span>
+			</div>
+		
+			<div class="info">
+				<p>姓名:</p>
+				<p>年级:</p>
+				<p>院系:</p>
+				<p>手机号码:</p>
+				<div class="student-pho">
+					<a href="../../../src/img/cat1.jpg">
+						<img src="../../../src/img/cat1.jpg" alt="test">
+					</a>
+				</div>
+			</div>
+
+			<div class="identify-btn">
+				<div id="agree">
+					同意
+				</div>
+				<div id="refuse">
+					拒绝
+				</div>
+			</div>
+		</div>
+		
+	<div class="reason" style="display: none">
+		<form action="" id="reasonForm">
+			<input type="text" placeholder="拒绝理由" id="refuse-reason">
+			<input type="submit" value="确认" id="submit" style="display: none">
+		</form>
+	</div>
+
+		<script src="../../../../js/jquery-3.2.1.min.js"></script>
+		<script src="details.js"></script>
+
+	</body>
+</html>

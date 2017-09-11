@@ -13,4 +13,5 @@ $(function () {
 		fReader.readAsDataURL(imgFile);	
 	};
 	
+	
 });

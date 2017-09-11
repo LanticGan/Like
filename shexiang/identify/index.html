@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" href="../../css/reset.css">
 		<link rel="stylesheet" href="../../css/weui.min.css">
-		<title>摄影师认证</title>
 
 		<script>
 		var styleEle = document.createElement("style");
@@ -25,7 +24,7 @@
 				<span>摄影师认证</span>
 			</div>
 
-			<form action="">
+			<form action="/api/pho-certif" method="post" enctype="multipart/form-data" >
 				<div class="input-item">
 					<div class="input-name">
 						<p>姓名</p>
@@ -55,7 +54,7 @@
 						<p>号码</p>
 					</div>
 					<div class="input-value">
-						<input type="number" name="phoneNumber" placeholder="请输入手机号码">
+						<input type="number" maxlength="11" name="phoneNumber" placeholder="请输入手机号码">
 					</div>
 				</div>
 				<div class="student-id">
@@ -68,8 +67,8 @@
 							<img src="" alt="preview">
 						</div>
 					</div>
-					<input type="file" id="img" name="img" style="display: none">
 				</div>
+				<input type="file" id="img" name="img" style="display: none">
 				<div class="submit">
 					<input type="submit" value="提交" name="btn" id="btn">
 				</div>
