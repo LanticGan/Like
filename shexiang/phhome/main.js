@@ -10,7 +10,7 @@ $(function () {
 
 			$.ajax({
 				
-				url: `/api/phos/${phoId}?following=1`,
+				url: `/api/phos/${phoId}?followed=1`,
 				type: 'put'
 			})
 
@@ -18,7 +18,7 @@ $(function () {
 			this.classList.remove("follow-on");
 			$(this).text("关注"); 
 			$.ajax({
-				url: `/api/phos/${phoId}?following=0`,
+				url: `/api/phos/${phoId}?followed=0`,
 				type: 'put'
 			}) 
 		}

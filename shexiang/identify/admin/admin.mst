@@ -31,11 +31,11 @@
 				<p>手机号码:{{phone}}</p>
 				<p>个人信息:{{info}}</p>
 				<div class="student-pho">
-					{{#matertials}}
+					{{#materials}}
 					<a href={{.}}>
 						<img src={{.}} alt="test">
 					</a>
-					{{/matertials}}
+					{{/materials}}
 				</div>
 			</div>
 
