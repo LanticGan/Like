@@ -1,14 +1,35 @@
-$(document).ready(function(){
+$(function () {
 
-//initphoto
-    var photoPage = 1,
-    	theLatestPhotoTime;
-    function getPhoto(url) {
+	var phoId = document.getElementsByClassName("ph-info")[0].id;
+
+	// follow 
+	$(".ph-follow").on("click", function() {
+		if (!this.classList.contains("follow-on")) {
+			this.classList.add("follow-on");
+			$(this).text("已关注");
+
+			$.ajax({
+				
+				url: `/api/phos/${phoId}?followed=1`,
+				type: 'put'
+			})
+
+		} else {
+			this.classList.remove("follow-on");
+			$(this).text("关注"); 
+			$.ajax({
+				url: `/api/phos/${phoId}?followed=0`,
+				type: 'put'
+			}) 
+		}
+	});
+
+	//Get Photo 
+	function getPhoto(url) {
 		$.ajax({
 			url: url,
 			type: "get",
 			success: function (data,status) {
-				theLatestPhotoTime = data[0].time;
 				data.forEach(function (item) {
 					// create Img DOM
 					var img = $(`<img id=${item.id} src=${item.thumb} hidden>`);
@@ -22,15 +43,15 @@ $(document).ready(function(){
 					// create LoveIcon DOM
 					var loveItem = "";
 					if(item.doilike){
-						loveItem = $(`<img src="src/icon/love-red.png" alt="love-item" class="love-icon">`)
+						loveItem = $(`<img src="/shexiang/src/icon/love-red.png" alt="love-item" class="love-icon">`)
 					} else {
-						loveItem = $(`<img src="src/icon/love-white.png" alt="love-item" class="love-icon">`)
+						loveItem = $(`<img src="/shexiang/src/icon/love-white.png" alt="love-item" class="love-icon">`)
 					}
 					loveItem.on("load", function () {
 						$(this).on("click", function (event) {
 							var articleId = $(this).parents("article").children("a.frame").children()[1].id;
 							if (this.src.match(/white/)) {
-								this.src = "src/icon/love-red.png";
+								this.src = "/shexiang/src/icon/love-red.png";
 								var loveNumber = $(this).parent().parent().next().children()[0].firstChild;
 								loveNumber.nodeValue = parseInt(loveNumber.nodeValue) + 1;
 								$.ajax({
@@ -38,7 +59,7 @@ $(document).ready(function(){
 									type: "PUT",
 								});
 							} else {
-								this.src = "src/icon/love-white.png";
+								this.src = "/shexiang/src/icon/love-white.png";
 								var loveNumber = $(this).parent().parent().next().children()[0].firstChild;
 								loveNumber.nodeValue = parseInt(loveNumber.nodeValue) - 1;
 								$.ajax({
@@ -50,7 +71,7 @@ $(document).ready(function(){
 					})
 
 					//commitAction 
-					var commentItem = $(`<img src="src/icon/comment.png" alt="comment-icon">`);
+					var commentItem = $(`<img src="/shexiang/src/icon/comment.png" alt="comment-icon">`);
 					commentItem.on("load", function () {
 						$(this).on("click",function () {
 							var formParent = this.parentNode.parentNode.parentNode.lastElementChild;
@@ -65,7 +86,6 @@ $(document).ready(function(){
 					var commentsContainer = $(`<div></div>`);
 					var comments = item.comments,
 						userName;
-
 					function createCommentsDom (commentsList) {
 						commentsList.forEach(function (comment) {
 						var ucObj = $(`<a href="javascript:;" style="display: block" class="user-comment" ></a>`)
@@ -121,12 +141,15 @@ $(document).ready(function(){
 						commentsContainer.append(remainComents);
 					}
 
+				
+
+					
 
 					// create article DOM
 					var article = $(`
 						<article class="photo-share" id="ta">
 							<header class="user">
-								<a href="photographer/${item.user}/" >
+								<a href="phhome/phhome.html" >
 									<img src=${item.avat} alt="avatar" class="avatar">
 									<span>${item.intro}</span>
 									<span class="dividing-line">|</span>
@@ -170,6 +193,28 @@ $(document).ready(function(){
 					article.children(".communication").append(commentsContainer);
 					article.find(".comment-icon").append(commentItem);
 					article.find(".love-item").append(loveItem);
+
+					if (item.self) {
+						//Delete Article
+						var deleteItem = $(`<a href="javascript:;">
+										<img src="/shexiang/src/icon/delete.png" alt="delete" class="delete-icon">
+									</a>`);
+						deleteItem.click(function () {
+							var deleteConfirm = confirm("要删除这张照片吗?")
+							if (deleteConfirm) {
+								$.ajax({
+									url: `/api/posts/${item.id}`,
+									type: "delete",
+									success: function () {
+										window.location.reload();
+									}
+								})
+							}
+						});
+						article.children("header").append(deleteItem);
+
+					} 
+
 					$("#target").append(article);
 
 
@@ -204,114 +249,8 @@ $(document).ready(function(){
 
 		});
 	};
-
-	getPhoto("../api/posts?page=" + photoPage);
-	var userFollow = 0; // Help the scroll event to judge if the articles is followed.  
-
-// back-to-top Action 
-	$("#back-to-top").on("click", function () {
-		document.body.scrollTop = 0;
-		this.style.display = 'none';
-	})
-
-var unlock = true;
-// Listen Touchmove Event
-	$(document).on("touchstart", function(e) {
-		var finger = e.targetTouches[0];
-		var initY = finger.clientY;
-		$(this).on("touchmove", function (ev) {
-		// Get More Photo 
-			var Ctop = document.body.scrollTop
-	        var Cheight = document.body.clientHeight
-	        if (Ctop > Cheight * 0.9 && unlock) {
-	        	photoPage += 1;
-	        	if (userFollow) {
-	        		getPhoto(`../api/posts?page=${photoPage}&following=1`);
-	        	} else {
-	        		getPhoto(`../api/posts?page=${photoPage}`)
-	        	}
-	        	unlock = false;
-	        	setTimeout(function () {
-	        		unlock = true;
-	        	}, 5000);
-	        }
-			var presentY = ev.targetTouches[0].clientY;
-			if (presentY > initY) {
-				$("#back-to-top").css("display", "block");
-			} else {
-				$("#back-to-top").css("display", "none");
-			}
-		})
-	});
-
-
-
-
-//  Toggle Photo
-	var hotPhoto = document.getElementById("btn-item1");
-	var followPhoto = document.getElementById("btn-item2");
-
-	hotPhoto.addEventListener("click", function () {
-
-		if (!hotPhoto.classList.contains("item-on")) {
-			hotPhoto.classList.add("item-on");
-			photoPage = 1;
-			$("#target").empty();
-			getPhoto(`../api/posts?page=${photoPage}` );
-		}
-		if (followPhoto.classList.contains("item-on")) {
-			followPhoto.classList.remove("item-on");
-		}
-
-	}, false);
-
-	followPhoto.addEventListener("click", function () {
-		if (!followPhoto.classList.contains("item-on")) {
-			followPhoto.classList.add("item-on");
-			$("#target").empty();
-			photoPage = 1;
-			getPhoto(`../api/posts?page=${photoPage}&following=1`);
-			userFollow = 1;
-		}
-		if (hotPhoto.classList.contains("item-on")) {
-			hotPhoto.classList.remove("item-on");
-		}
-	}, false);
-
-
-	document.getElementById("image").onchange = function () {
-		var imgFile = this.files[0];
-		var fReader = new FileReader();
-		fReader.onload = function () {
-			document.getElementsByClassName("container")[0].style.display = "none";
-			document.getElementById("preview-photo").src = fReader.result;
-			document.getElementById("photo-submit").style.display = "block";
-		}
-		fReader.readAsDataURL(imgFile);
-	}
 	
-	$("#share-text").on("click", function() {
-		var shareResult = confirm("要发布照片吗?")
-		if (shareResult) {
-			var form = new FormData(document.getElementById("imgForm"));
-			$.ajax({
-				url:"/api/posts",
-	            type:"post",
-	            data:form,
-	            processData:false,
-	            contentType:false,
-	            success:function(data){
-	            	alert("照片发布成功!");
-	            	window.location.href = "index.mst";
-	            },
-	            error:function(e){
-	              	alert("很抱歉，照片发布失败，请重试。");
-	              	window.location.reload();
-	            }  
-	         });
-		}
-	});
-
+	getPhoto(`/api/posts?authorid=${phoId}`);
 
 // show photo viewer
 	$(document).on("click", "a.frame", function(ev) {
@@ -358,6 +297,5 @@ var unlock = true;
 			$("#show-original").removeClass("show-original-hidden");
 		});
 	});
-
-});
-
+	
+}); 

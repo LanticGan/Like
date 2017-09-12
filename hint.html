@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<title></title>
+
+
+</head>
+<body ontouchstart="">
+	<div id="container" style="display: flex; align-items: center; justify-content:center;">
+	  <div>
+	  	您还未认证摄影师,需要先<a href="/shexiang/identify/index.html">认证</a>才能发布照片哦
+	  </div>
+	</div>
+
+<script>
+	(function () {
+		var cWidth = document.documentElement.clientWidth;
+		var cHeight = document.documentElement.clientHeight;
+		var container = document.getElementById("container");
+		container.style.width = cWidth + "px";
+		container.style.height = cHeight + "px";
+	})()
+</script> 
+</body>
+</html>

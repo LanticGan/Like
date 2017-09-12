@@ -4,99 +4,64 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 
-	<title></title>
+	<script>
+		var styleEle = document.createElement("style");
+		document.documentElement.firstElementChild.appendChild(styleEle);
 
-	<link rel="stylesheet" href="../css/reset.css">
-	<link rel="stylesheet" href="../css/weui.min.css">
-	<link rel="stylesheet" href="index.css">
+		(function () {
+			var px = document.documentElement.clientWidth / 10;
+			styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
+		})()
+	</script> 
+
+	<link rel="stylesheet" href="../../../css/reset.css">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../../../css/weui.min.css">
+	<link rel="stylesheet" href="/shexiang/index.css">
 	<link href="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.css" rel="stylesheet" type="text/css">
 	<link href="http://cdn.bootcss.com/photoswipe/4.1.1/default-skin/default-skin.min.css" rel="stylesheet" type="text/css">
- <script>
-	var styleEle = document.createElement("style");
-	document.documentElement.firstElementChild.appendChild(styleEle);
-
-	(function () {
-		var px = document.documentElement.clientWidth / 10;
-		styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
-
-	})()
-</script> 
 
 </head>
 
-<body ontouchstart="" >
-	<div class="container">
-		<div class="header">
-			<span>摄享</span>
-			{{#self}}
-			<a href="#" id="photoer">
-				<label for="image"><img src="src/icon/photo.png" alt="photographer"></label>
-				<form id="imgForm" style="display: none">
-					<input type="file" id="image" name="img">
-				</form>
-			</a>
-			{{/self}}
-			{{^self}}
-			<a href="identify/index.html" id="photoer">
-				<img src="src/icon/photo.png" alt="photographer">
-			</a>
-			{{/self}}
+<body ontouchstart="">
 
+	<div class="container">
+		<div class="ph-header">
+			<div class="ph-backgroung">
+				<img src="/shexiang/src/img/phbg.jpg" alt="">
+			</div>
+			<div class="ph-info" id={{id}}>
+				<div class="ph-avatar">
+					<img src="{{avatar}}" alt="">
+				</div>
+				<p>{{nickname}}</p>
+				<p>{{intro}}</p>
+				<p style="font-size:0.4rem;">
+					{{follower_count}}粉丝 | {{post_count}}作品
+				</p>
+			</div>
+
+		{{^self}}
+			{{#followed}}
+			<div class="ph-follow follow-on">
+				已关注	
+			</div>
+			{{/followed}}
+
+			{{^followed}}
+				<div class="ph-follow" >
+					关注	
+				</div>
+			{{/followed}}
+		{{/self}}
 		</div>
 
-		<div class="btn-container">
-			<div class="btn-item item-on" id="btn-item1">最新作品</div>
-			<div class="btn-item" id="btn-item2">我关注的</div>
 		</div>
 
 		<div id="target">
 		</div>
-
+		
 	</div>
-
-
-	<div id="photo-submit" style="display: none">
-		<header>
-			<a href="index.html" id="back">
-				<img src="src/icon/back.png" alt="">
-			</a>
-			<span>新照片</span>
-			<a href="#" id="share-text">
-				<p>分享</p>
-			</a>
-		</header>
-		<section> 
-		<textarea name="description" form="imgForm" cols="20" rows="4" placeholder="照片说明..."></textarea>
-			<div class="preview-photo-container">
-				<img id="preview-photo" src="" alt="">
-			</div>
-		</section>
-	</div>
-
-	<div id="back-to-top" style="display:none">
-		<img src="src/icon/top.png" alt="back-to-top">
-	</div>
-
-	<nav class="bottom-menu">	
-		<a href="#" class="bottom-menu-item" id="home-item">
-			<img src="src/icon/home-on.png" alt="">
-		</a>
-
-		<a href="photographer/index.mst" class="bottom-menu-item" id="photographer-item">
-			<img src="src/icon/photographer.png" alt="">
-		</a>
-
-	
-		<a {{#self}} href=photographer/{{self}}/ {{/self}}
-			{{^self}} href="hint.html" {{/self}}
-		class="bottom-menu-item" id="photographer-item">
-			<img src="/shexiang/src/icon/person.png" alt="">
-		</a>
-
-		<a href="../index.mst" class="bottom-menu-item">
-			<img src="src/icon/function.png" alt="">
-		</a>
-	</nav>
 
 	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -169,7 +134,8 @@
 
 <script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.js" defer=""></script>
 <script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe-ui-default.min.js" defer=""></script>
-<script src="../js/jquery-3.2.1.min.js"></script>
-<script src="index.js"></script>
+
+	<script src="../../../js/jquery-3.2.1.min.js"></script>
+	<script src="main.js"></script>
 </body>
 </html>

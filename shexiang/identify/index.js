@@ -13,5 +13,7 @@ $(function () {
 		fReader.readAsDataURL(imgFile);	
 	};
 	
-	
+	$("#identify-form").on("submit", function () {
+		alert("摄影师认证申请成功!");
+	})
 });

@@ -30,7 +30,7 @@
 						<p>姓名</p>
 					</div>
 					<div class="input-value">
-						<input type="text" name="name" placeholder="请输入真实姓名" maxlength="5">
+						<input type="text" name="name" placeholder="请输入真实姓名" maxlength="5" required="required">
 					</div>
 				</div>
 				<div class="input-item">
@@ -38,7 +38,9 @@
 						<p>年级</p>
 					</div>
 					<div class="input-value">
-						<input type="text" name="grade" placeholder="请输入年级" maxlength="5">
+						<input type="text" name="grade" placeholder="请输入年级" maxlength="5"
+							required="required"
+						>
 					</div>
 				</div>
 				<div class="input-item">
@@ -46,7 +48,7 @@
 						<p>院系</p>
 					</div>
 					<div class="input-value">
-						<input type="text" name="major" placeholder="请输入院系">
+						<input type="text" name="major" required="required" placeholder="请输入院系">
 					</div>
 				</div>
 				<div class="input-item">
@@ -54,7 +56,7 @@
 						<p>号码</p>
 					</div>
 					<div class="input-value">
-						<input type="number" maxlength="11" name="phoneNumber" placeholder="请输入手机号码">
+						<input type="number" required="required" maxlength="11" name="phoneNumber" placeholder="请输入手机号码">
 					</div>
 				</div>
 				<div class="input-item" style="display: block;">
@@ -62,7 +64,7 @@
 						<p>个人简介</p>
 					</div>
 					<div class="input-value" style="padding: 5px 0 0 5px;">
-						<textarea name="info" form="identify-form" id="info" cols="28" rows="6" placeholder="请慎重填写,若审核通过则此简介将对外展示"></textarea>
+						<textarea name="info" required="required" form="identify-form" id="info" cols="28" rows="6" placeholder="请慎重填写,若审核通过则此简介将对外展示"></textarea>
 					</div>
 				</div>
 				<div class="student-id">
@@ -76,7 +78,7 @@
 						</div>
 					</div>
 				</div>
-				<input type="file" id="img" name="img" style="display: none">
+				<input required="required" type="file" id="img" name="img" style="display: none">
 				<div class="submit">
 					<input type="submit" value="提交"  id="btn">
 				</div>
