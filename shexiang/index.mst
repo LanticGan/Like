@@ -45,8 +45,10 @@
 		</div>
 
 		<div class="btn-container">
-			<div class="btn-item item-on" id="btn-item1">最新作品</div>
-			<div class="btn-item" id="btn-item2">我关注的</div>
+			<div>
+				<div class="btn-item item-on" id="btn-item1">最新作品</div>
+				<div class="btn-item" id="btn-item2">我关注的</div>
+			</div>
 		</div>
 
 		<div id="target">

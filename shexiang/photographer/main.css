@@ -3,7 +3,40 @@
 	font-size: 0.6rem;
 	text-align: center;
 	padding: 0.35rem 0;
-	border-bottom: 1px solid #efefef;
+	/* border-bottom: 1px solid #efefef; */
+}
+
+.btn-container {
+	position:relative;
+	margin: 0.5rem 0 1rem 0;
+	font-size: 0.43rem;
+	text-align: center;
+}
+
+.btn-container > div {
+	font-size: 0.43rem;
+	position: relative;
+	display: inline-flex;
+	line-height: 0.85rem;
+	border: 1px solid #373737;
+	border-radius: 0.2rem;
+	overflow: hidden;
+	color: #000;
+}
+
+.btn-item {
+	display: inline-block;
+	border-right: 1px solid #373737;
+	width: 2.4rem;
+}
+
+.btn-item:last-child {
+	border: 0;
+}
+
+.item-on {
+	background: #373737;
+	color: white;
 }
 
 .photographer-list {

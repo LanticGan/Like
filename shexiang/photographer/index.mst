@@ -16,7 +16,7 @@
 
 	<link rel="stylesheet" href="../../css/reset.css">
 	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="../../css/weui.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
 
 </head>
 
@@ -27,17 +27,19 @@
 			<span>摄影师</span>
 		</div>
 
-		<div class="weui-navbar" style="position:relative;margin-bottom:1.5rem;">
-                <div id="latest" class="weui-navbar__item weui-bar__item_on">
+		<div class="btn-container">
+			<div>
+                <div id="latest" class="btn-item item-on">
                     最新
                 </div>
-                <div id="hot" class="weui-navbar__item">
+                <div id="hot" class="btn-item">
                     最热
                 </div>
-                <div id="followed" class="weui-navbar__item">
+                <div id="followed" class="btn-item">
                     关注
-                </div>
-           </div>
+				</div>
+			</div>
+        </div>
 
 		<div class="photographer-list">
 	       
@@ -66,7 +68,7 @@
 		</nav>
 	</div>
 
-	<script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	<script src="main.js"></script>
 </body>
 </html>

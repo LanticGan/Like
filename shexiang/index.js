@@ -8,7 +8,7 @@ $(document).ready(function(){
 			url: url,
 			type: "get",
 			success: function (data,status) {
-				theLatestPhotoTime = data[0].time;
+				theLatestPhotoTime = data[data.length - 1].time;
 				data.forEach(function (item) {
 					// create Img DOM
 					var img = $(`<img id=${item.id} src=${item.thumb} hidden>`);
@@ -205,7 +205,7 @@ $(document).ready(function(){
 		});
 	};
 
-	getPhoto("../api/posts?page=" + photoPage);
+	getPhoto("/api/posts");
 	var userFollow = 0; // Help the scroll event to judge if the articles is followed.  
 
 // back-to-top Action 
@@ -221,14 +221,14 @@ var unlock = true;
 		var initY = finger.clientY;
 		$(this).on("touchmove", function (ev) {
 		// Get More Photo 
-			var Ctop = document.body.scrollTop
-	        var Cheight = document.body.clientHeight
-	        if (Ctop > Cheight * 0.9 && unlock) {
-	        	photoPage += 1;
+			var Ctop = document.body.scrollTop;
+	        var Cheight = document.body.clientHeight;
+	        if (Ctop > Cheight * 0.8 && unlock) {
+	        	var sTime = encodeURIComponent(theLatestPhotoTime);
 	        	if (userFollow) {
-	        		getPhoto(`../api/posts?page=${photoPage}&following=1`);
+	        		getPhoto(`../api/posts?time=${sTime}&following=1`);
 	        	} else {
-	        		getPhoto(`../api/posts?page=${photoPage}`)
+	        		getPhoto(`../api/posts?time=${sTime}`);
 	        	}
 	        	unlock = false;
 	        	setTimeout(function () {
@@ -293,6 +293,7 @@ var unlock = true;
 	$("#share-text").on("click", function() {
 		var shareResult = confirm("要发布照片吗?")
 		if (shareResult) {
+			this.style.display = "none";
 			var form = new FormData(document.getElementById("imgForm"));
 			$.ajax({
 				url:"/api/posts",
