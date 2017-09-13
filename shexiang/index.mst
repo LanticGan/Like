@@ -37,7 +37,7 @@
 			</a>
 			{{/self}}
 			{{^self}}
-			<a href="identify/index.html" id="photoer">
+			<a href="identify/index.mst" id="photoer">
 				<img src="src/icon/photo.png" alt="photographer">
 			</a>
 			{{/self}}
@@ -52,6 +52,10 @@
 		</div>
 
 		<div id="target">
+		</div>
+
+		<div id="loading" style="display:none">
+			正在加载...
 		</div>
 
 	</div>

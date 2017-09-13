@@ -23,7 +23,7 @@
 			<div class="header">
 				<span>摄影师认证</span>
 			</div>
-
+		{{^status_pending}}
 			<form action="" method="post" enctype="multipart/form-data" id="identify-form">
 				<div class="input-item">
 					<div class="input-name">
@@ -85,7 +85,7 @@
 						<p>个人简介</p>
 					</div>
 					<div class="input-value" style="padding: 5px 0 0 5px;">
-						<textarea name="info" required="required" form="identify-form" id="info" cols="28" rows="6" placeholder="请慎重填写,若审核通过则此简介将对外展示"></textarea>
+						<textarea name="info" required="required" form="identify-form" id="info" cols="28" rows="6" placeholder="请慎重填写,若审核通过则此简介将对外展示" maxlength="48"></textarea>
 					</div>
 				</div>
 				<div class="student-id">
@@ -104,6 +104,13 @@
 					<input type="submit" value="提交"  id="btn">
 				</div>
 			</form>
+		{{/status_pending}}
+
+		{{#status_pending}}
+			<div style="font-size:16px">
+				您的资料正在审核中,请耐心等待哦
+			</div>
+		{{/status_pending}}
 
 		</div>
 

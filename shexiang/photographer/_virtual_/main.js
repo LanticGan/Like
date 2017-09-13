@@ -1,6 +1,13 @@
 $(function () {
 
 	var phoId = document.getElementsByClassName("ph-info")[0].id;
+	$(".ph-avatar").on("click", function () {
+		if ($("#phName").text() != phoId) {
+			$("#phName").text(phoId)
+		} else {
+			$("#phName").text(document.getElementById("avatarImg").alt);
+		}
+	})
 
 	// follow 
 	$(".ph-follow").on("click", function() {

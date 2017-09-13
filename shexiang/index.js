@@ -3,11 +3,14 @@ $(document).ready(function(){
 //initphoto
     var photoPage = 1,
     	theLatestPhotoTime;
+    	var loadItem = document.getElementById('loading');
     function getPhoto(url) {
+    	loadItem.style.display = 'block';
 		$.ajax({
 			url: url,
 			type: "get",
 			success: function (data,status) {
+				loadItem.style.display = 'none';
 				theLatestPhotoTime = data[data.length - 1].time;
 				data.forEach(function (item) {
 					// create Img DOM
@@ -222,7 +225,7 @@ var unlock = true;
 		// Get More Photo 
 			var Ctop = document.body.scrollTop;
 	        var Cheight = document.body.clientHeight;
-	        if (Ctop > Cheight * 0.8 && unlock) {
+	        if (Ctop > Cheight * 0.7 && unlock) {
 	        	var sTime = encodeURIComponent(theLatestPhotoTime);
 	        	if (userFollow) {
 	        		getPhoto(`../api/posts?time=${sTime}&following=1`);

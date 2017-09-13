@@ -63,10 +63,12 @@
 
 
 .delete-icon {
-	vertical-align: middle;
+	
 	width: 24px;
 	height: 24px;
-	margin-left: 18px;
+	float: right;
+    margin-top: 0.1rem;
+
 }
 
 
