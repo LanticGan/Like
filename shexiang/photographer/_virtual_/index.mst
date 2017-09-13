@@ -28,7 +28,7 @@
 	<div class="container">
 		<div class="ph-header">
 			<div class="ph-backgroung">
-				<img src="/shexiang/src/img/phbg.jpg" alt="">
+				<img src="/shexiang/src/img/pnbg2.jpg" alt="">
 			</div>
 			<div class="ph-info" id={{id}}>
 				<div class="ph-avatar">
@@ -58,7 +58,7 @@
 
 		</div>
 
-		<div id="target">
+		<div id="target" {{#self}}style="margin-top:1rem" {{/self}} >
 		</div>
 		
 	</div>

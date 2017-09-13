@@ -59,7 +59,7 @@
 
 	<div id="photo-submit" style="display: none">
 		<header>
-			<a href="index.html" id="back">
+			<a href="index.mst" id="back">
 				<img src="src/icon/back.png" alt="">
 			</a>
 			<span>新照片</span>

@@ -128,9 +128,9 @@ $(document).ready(function(){
 							<header class="user">
 								<a href="photographer/${item.user}/" >
 									<img src=${item.avat} alt="avatar" class="avatar">
-									<span>${item.intro}</span>
+									<span style="font-weight:600">${item.name}</span>
 									<span class="dividing-line">|</span>
-									<span>${item.name}</span>
+									<span>${item.intro}</span>
 								</a>
 							</header>
 					
@@ -139,7 +139,6 @@ $(document).ready(function(){
 							</a>
 
 							<div class="author-comment">
-									<span class="author">${item.name}:</span>
 									<span>${item.content}</span>
 							</div>
 

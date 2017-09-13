@@ -149,11 +149,11 @@ $(function () {
 					var article = $(`
 						<article class="photo-share" id="ta">
 							<header class="user">
-								<a href="phhome/phhome.html" >
+								<a href="javascript:;" >
 									<img src=${item.avat} alt="avatar" class="avatar">
-									<span>${item.intro}</span>
+									<span style="font-weight:600">${item.name}</span>
 									<span class="dividing-line">|</span>
-									<span>${item.name}</span>
+									<span>${item.intro}</span>
 								</a>
 							</header>
 					
@@ -162,7 +162,6 @@ $(function () {
 							</a>
 
 							<div class="author-comment">
-									<span class="author">${item.name}:</span>
 									<span>${item.content}</span>
 							</div>
 

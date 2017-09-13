@@ -24,7 +24,7 @@
 				<span>摄影师认证</span>
 			</div>
 
-			<form action="/api/pho-certif" method="post" enctype="multipart/form-data" id="identify-form">
+			<form action="" method="post" enctype="multipart/form-data" id="identify-form">
 				<div class="input-item">
 					<div class="input-name">
 						<p>姓名</p>
@@ -38,9 +38,15 @@
 						<p>年级</p>
 					</div>
 					<div class="input-value">
-						<input type="text" name="grade" placeholder="请输入年级" maxlength="5"
+						<!-- <input type="text" name="grade" placeholder="请输入年级" maxlength="5"
 							required="required"
-						>
+						> -->
+						<select name="grade"  form="identify-form" required="required">
+							<option value="14级">14级</option>
+							<option value="15级">15级</option>
+							<option value="16级">16级</option>
+							<option value="17级">17级</option>
+						</select>
 					</div>
 				</div>
 				<div class="input-item">
@@ -48,7 +54,22 @@
 						<p>院系</p>
 					</div>
 					<div class="input-value">
-						<input type="text" name="major" required="required" placeholder="请输入院系">
+						<!-- <input type="text" name="major" required="required" placeholder="请输入院系"> -->
+						<select name="major"  form="identify-form" required="required">
+							<option value="播音与主持艺术学院">播音与主持艺术学院</option>
+							<option value="电影电视学院">电影电视学院</option>
+							<option value="艺术设计与动画学院">艺术设计与动画学院</option>
+							<option value="新闻传播与新媒体艺术学院">新闻传播与新媒体艺术学院</option>
+							<option value="数字媒体与创意设计学院">数字媒体与创意设计学院</option>
+							<option value="表演系">表演系</option>
+							<option value="戏剧影视美术设计系">戏剧影视美术设计系</option>
+							<option value="摄影系">摄影系</option>
+							<option value="传播与经贸系">传播与经贸系</option>
+							<option value="影视编导系">影视编导系</option>
+							<option value="航空系">航空系</option>
+							<option value="国际部">国际部</option>
+							<option value="艺术体育部">艺术体育部</option>
+						</select>
 					</div>
 				</div>
 				<div class="input-item">
@@ -56,7 +77,7 @@
 						<p>号码</p>
 					</div>
 					<div class="input-value">
-						<input type="number" required="required" maxlength="11" name="phoneNumber" placeholder="请输入手机号码">
+						<input type="number" required="required" oninput="if(value.length>11)value=value.slice(0,11) " name="phoneNumber" placeholder="请输入手机号码">
 					</div>
 				</div>
 				<div class="input-item" style="display: block;">
@@ -78,7 +99,7 @@
 						</div>
 					</div>
 				</div>
-				<input required="required" type="file" id="img" name="img" style="display: none">
+				<input  type="file" id="img" name="img" style="display: none">
 				<div class="submit">
 					<input type="submit" value="提交"  id="btn">
 				</div>

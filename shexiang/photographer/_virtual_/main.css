@@ -23,7 +23,7 @@
 
 .ph-info {
 	position: relative;
-	padding-top: 1.5rem;
+	padding-top: 1.2rem;
 	z-index: 200;
 	text-align: center;
 	font-size: 0.45rem;
@@ -48,7 +48,7 @@
 	height: 0.8rem;
 	border: 1px solid white;
 	border-radius: 5px;
-	margin: 20px auto 0 auto;
+	margin: 0.3rem auto 0 auto;
 	z-index: 200;
 	text-align: center;
 	line-height: 0.8rem;
@@ -66,13 +66,9 @@
 	vertical-align: middle;
 	width: 24px;
 	height: 24px;
-	float: right;
-	margin-right: 12px;
+	margin-left: 18px;
 }
 
-#target {
-	margin-top: 1.4rem;
-}
 
 #show-original {
     position: fixed;
