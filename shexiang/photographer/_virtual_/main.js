@@ -12,6 +12,8 @@ $(function () {
 	// follow 
 	$(".ph-follow").on("click", function() {
 		if (!this.classList.contains("follow-on")) {
+			var Fans = Number($("#fans").text()) + 1;
+			$("#fans").text(Fans)
 			this.classList.add("follow-on");
 			$(this).text("已关注");
 
@@ -22,6 +24,8 @@ $(function () {
 			})
 
 		} else {
+			var Fans = Number($("#fans").text()) - 1;
+			$("#fans").text(Fans)
 			this.classList.remove("follow-on");
 			$(this).text("关注"); 
 			$.ajax({

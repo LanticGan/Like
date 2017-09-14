@@ -5,13 +5,79 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<title>一卡通</title>
 		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="../css/weui.min.css"> 
 		<link rel="stylesheet" href="../css/reset.css">
+
+		<script>
+		var styleEle = document.createElement("style");
+		document.documentElement.firstElementChild.appendChild(styleEle);
+
+		(function () {
+			var px = document.documentElement.clientWidth / 10;
+			styleEle.innerHTML = "html{font-size: " + px + "px!important;}" ;
+
+		})()
+	</script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="header">
-				<span>一卡通充值方式</span>
+				<span>一卡通充值方法</span>
 			</div>
+			<div class="page__bd">
+        <article class="weui-article">
+            <h1 style="font-size:20px;">支付宝充值步骤</h1>
+            <section>
+                <section>
+                    <h3 style="font-size:18px;">1.打开支付宝主页,点击全部</h3>
+                    <p>
+                        <img src="./process1.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h3 style="font-size:18px;">2.下拉至教育公益,点击校园工作</h3>
+                    <p>
+                        <img src="./process2.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h3 style="font-size:18px;">3.点击一卡通</h3>
+                    <p>
+                        <img src="./process3.jpg" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h3 style="font-size:18px;">4.点击立即充值即可进行一卡通充值啦!</h3>
+                    <p>
+                        <img src="./process4.png" alt="">
+                    </p>
+                </section>
+            </section>
+        </article>
+        <article class="weui-article">
+            <h1 style="font-size:20px;">翼支付充值步骤</h1>
+            <section>
+                <section>
+                    <h3 style="font-size:18px;">1.打开翼支付手机客户端,点击更多</h3>
+                    <p>
+                        <img src="./yzf0.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h3 style="font-size:18px;">2.在全部应用中点击校园卡</h3>
+                    <p>
+                        <img src="./yzf1.png" alt="">
+                    </p>
+                </section>
+                <section>
+                    <h3 style="font-size:18px;">3.输入信息点击下一步即可充值!</h3>
+                    <p>
+                        <img src="./yzf2.png" alt="">
+                    </p>
+                </section>
+            </section>
+        </article>
+    </div>	
 		</div>
 	</body>
 </html>
