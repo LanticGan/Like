@@ -27,9 +27,6 @@
 
 	<div class="container">
 		<div class="ph-header">
-			<div class="ph-backgroung">
-				<img src="/shexiang/src/img/pnbg2.jpg" alt="">
-			</div>
 			<div class="ph-info" id={{id}}>
 				<div class="ph-avatar">
 					<img id="avatarImg" src="{{avatar}}" alt={{nickname}}>

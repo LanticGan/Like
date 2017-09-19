@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+
+		<title>课程表</title>
+
+		<link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+		<link rel="stylesheet" href="index.css">
+	</head>
+
+	<body ontouchstart>
+		<div class="weui-cells" id="pick-btn">
+			<div class="weui-cell weui-cell_access">
+				选择专业
+			</div>
+		</div>
+		<table>
+			<tr>
+				<th>周一</th>
+				<th>周二</th>
+				<th>周三</th>
+				<th>周四</th>
+				<th>周五</th>
+			</tr>
+			<tr>
+				<td>
+					<div class="item"></div>
+				</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js" defer></script>
+		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js" defer></script>
+		<script>
+			var pickerSelections = [
+				// {{#grades}}
+				{
+					label: "{{value}}",
+					value: "{{value}}",
+					children: [
+						// {{#majors}}
+						{
+							label: "{{value}}",
+							value: "{{value}}",
+							children: [
+								// {{#classNames}}
+								{
+									label: "{{.}}",
+									value: "{{.}}",
+								},
+								// {{/classNames}}
+							]
+						},
+						// {{/majors}}
+					]
+				},
+				// {{/grades}}
+			]
+		</script>
+		<script src="index.js" defer></script>
+	</body>
+</html>

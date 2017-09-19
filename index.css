@@ -6,7 +6,7 @@
 }
 
 .user-info {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 }
 
 .user-avatar {
@@ -55,4 +55,22 @@
 
 .follow {
 	margin: 0.4rem
+}
+
+.grids {
+	position: relative;
+	overflow: hidden;
+}
+
+.grid {
+	position: relative;
+    float: left;
+    padding: 20px 10px;
+    width: 33.33333333%;
+    box-sizing: border-box;
+}
+
+.weui-grid__icon {
+	height: 32px !important;
+	width: 32px !important;
 }
