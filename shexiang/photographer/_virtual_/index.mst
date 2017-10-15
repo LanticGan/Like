@@ -18,8 +18,8 @@
 	<link rel="stylesheet" href="main.css">
 	<link rel="stylesheet" href="../../../css/weui.min.css">
 	<link rel="stylesheet" href="/shexiang/index.css">
-	<link href="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.css" rel="stylesheet" type="text/css">
-	<link href="http://cdn.bootcss.com/photoswipe/4.1.1/default-skin/default-skin.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdn.bootcss.com/photoswipe/4.1.1/default-skin/default-skin.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -129,8 +129,8 @@
 <a id="show-original" class="show-original-hidden" hidden="">查看原图</a>
 
 
-<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.js" defer=""></script>
-<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe-ui-default.min.js" defer=""></script>
+<script src="https://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.min.js" defer=""></script>
+<script src="https://cdn.bootcss.com/photoswipe/4.1.1/photoswipe-ui-default.min.js" defer=""></script>
 
 	<script src="../../../js/jquery-3.2.1.min.js"></script>
 	<script src="main.js"></script>

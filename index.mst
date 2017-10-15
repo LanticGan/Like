@@ -74,7 +74,7 @@
 		        <div class="weui-grid__icon">
 		            <img src="./res/icon/3.png" alt="">
 		        </div>
-		        <p class="weui-grid__label">请假</p>
+		        <p class="weui-grid__label">周末去向表</p>
 		    </a>
 		    <a href="AllKnow/allknow.html" class="grid">
 		        <div class="weui-grid__icon">

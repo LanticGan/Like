@@ -281,16 +281,20 @@ input {
 }
 
 #show-original {
+ 
     position: fixed;
-    bottom: 2.5rem;
+    /* bottom: 2.5rem; */
+    top: 0.1rem;
+    right: 0.1rem;
+    /* left: 0.2rem; */
     z-index: 2000;
-    left: 0;
-    right: 0;
-    width: 3rem;
-    margin: 0 auto;
+    /* left: 0; */
+    /* right: 0; */
+    width: 2.5rem;
+    /* margin: 0 auto; */
     border: 1px solid #FFF;
-    line-height: 1rem;
-    border-radius: 0.4rem;
+    /* line-height: 1rem; */
+    /* border-radius: 0.4rem; */
     background: #000;
     color: #FFF;
     -webkit-transition: opacity .333s;

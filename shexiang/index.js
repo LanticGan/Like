@@ -138,7 +138,10 @@ $(document).ready(function(){
 							</header>
 					
 							<a class="frame" style="display:block" href=${item.orig}>
-								<span style="font-size:14px;">loading...</span>
+								<div style="font-size:14px;text-align:center;">
+									loading...
+								</div>
+							
 							</a>
 
 							<div class="author-comment">
@@ -317,7 +320,7 @@ var unlock = true;
 
 
 // show photo viewer
-	$(document).on("click", "a.frame", function(ev) {
+	$(document).on("click", "a.frame", function(ev) {	
 		ev.preventDefault();
 		var img = $(this).children("img")[0]
 		,	pswpElem = $(".pswp")[0]
@@ -342,6 +345,7 @@ var unlock = true;
 				}
 			}
 		,	gallery = new PhotoSwipe(pswpElem, PhotoSwipeUI_Default, items, options);
+
 		gallery.listen('initialZoomIn', function() {
 			gallery.ui.hideControls();
 		});
